@@ -40,7 +40,7 @@ model = ModelInference(
 
 llm = WatsonxLLM(model = model)
 mysql_username = 'root'  # Replace with your server connect information
-mysql_password = 'HtDkQTESNa0IzAREbS5Z7RlV' # Replace with your server connect information
+mysql_password = '...' # Replace with your server connect information
 mysql_host = '172.21.59.224' # Replace with your server connect information
 mysql_port = '3306' # Replace with your server connect information
 database_name = 'Chinook'
