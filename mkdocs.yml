@@ -1,0 +1,13 @@
+site_name: "AI for Medical Diagnosis - Week 1 Summary"
+site_description: "Summary of methods, concepts, formulas, and code for building chest X-ray medical diagnosis models."
+theme: 
+  name: material
+  palette:
+    scheme: default
+    primary: indigo
+  features:
+    - search.suggest
+    - search.highlight
+    - toc.integrate
+nav:
+  - Home: index.md
