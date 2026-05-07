@@ -1,0 +1,620 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Summary of methods, concepts, formulas, and code for building chest X-ray medical diagnosis models.">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>AI for Medical Diagnosis - Week 1 Summary</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ai-for-medical-diagnosis-chest-x-ray-classification" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="AI for Medical Diagnosis - Week 1 Summary" class="md-header__button md-logo" aria-label="AI for Medical Diagnosis - Week 1 Summary" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI for Medical Diagnosis - Week 1 Summary
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="AI for Medical Diagnosis - Week 1 Summary" class="md-nav__button md-logo" aria-label="AI for Medical Diagnosis - Week 1 Summary" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI for Medical Diagnosis - Week 1 Summary
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-data-exploration-preventing-data-leakage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Data Exploration &amp; Preventing Data Leakage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Data Exploration &amp; Preventing Data Leakage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods &amp; Codes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-image-pre-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Image Pre-processing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Image Pre-processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concepts_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods-codes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods &amp; Codes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-dealing-with-class-imbalance-weighted-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Dealing with Class Imbalance: Weighted Loss
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Dealing with Class Imbalance: Weighted Loss">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concepts_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods-codes_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods &amp; Codes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-modeling-densenet121" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Modeling: DenseNet121
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Modeling: DenseNet121">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concepts_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods-codes_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methods &amp; Codes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ai-for-medical-diagnosis-chest-x-ray-classification">AI for Medical Diagnosis: Chest X-Ray Classification</h1>
+<h2 id="1-data-exploration-preventing-data-leakage">1. Data Exploration &amp; Preventing Data Leakage</h2>
+<h3 id="concepts">Concepts</h3>
+<p><strong>Data Leakage</strong> occurs when information from outside the training dataset is used to create the model. In medical datasets, a common cause is <strong>Patient Overlap</strong>—when images from the same patient appear in both the training set and the validation/test set. This leads to an artificially inflated performance metric because the model easily recognizes the patient rather than the disease.</p>
+<h3 id="methods-codes">Methods &amp; Codes</h3>
+<p>To prevent leakage, we check for overlapping patient IDs using Python <code>set</code> intersections:</p>
+<pre><code class="language-python">def check_for_leakage(df1, df2, patient_col='PatientId'):
+    &quot;&quot;&quot;Return True if any patients are in both df1 and df2.&quot;&quot;&quot;
+    df1_patients_unique = set(df1[patient_col].unique())
+    df2_patients_unique = set(df2[patient_col].unique())
+
+    patients_in_both_groups = df1_patients_unique.intersection(df2_patients_unique)
+    return len(patients_in_both_groups) &gt; 0
+</code></pre>
+<p>To fix the leakage, you can extract the indices of the overlapping patients and drop them using pandas <code>df.drop()</code>.</p>
+<hr />
+<h2 id="2-image-pre-processing">2. Image Pre-processing</h2>
+<h3 id="concepts_1">Concepts</h3>
+<p>Before feeding images to a neural network, they need to be standardized. <strong>Standardization</strong> means adjusting the image data such that the mean is 0 and the standard deviation is 1:</p>
+<p>$$ x_{new} = \frac{x_i - \mu}{\sigma} $$</p>
+<p><strong>Important Note on Generators</strong>: 
+- For the <strong>Training</strong> set, we normalize images per batch using batch statistics.
+- For the <strong>Validation/Test</strong> set, we must not compute batch-wise statistics (because in reality, inference happens one image at a time). Instead, we use the statistics (mean, std) calculated strictly from the training set to normalize the validation/test data.</p>
+<h3 id="methods-codes_1">Methods &amp; Codes</h3>
+<p>We use Keras <code>ImageDataGenerator</code> for preprocessing and reading images directly from dataframes:</p>
+<pre><code class="language-python">from keras.preprocessing.image import ImageDataGenerator
+
+# 1. Training Generator (Normalizes using batch statistics)
+image_generator = ImageDataGenerator(
+    samplewise_center=True, 
+    samplewise_std_normalization=True
+)
+
+train_generator = image_generator.flow_from_dataframe(
+    dataframe=train_df,
+    directory=&quot;data/nih/images-small/&quot;,
+    x_col=&quot;Image&quot;, 
+    y_col=labels, 
+    class_mode=&quot;raw&quot;, 
+    batch_size=8,
+    shuffle=True, 
+    target_size=(320, 320)
+)
+</code></pre>
+<hr />
+<h2 id="3-dealing-with-class-imbalance-weighted-loss">3. Dealing with Class Imbalance: Weighted Loss</h2>
+<h3 id="concepts_2">Concepts</h3>
+<p>Medical datasets usually have a massive <strong>class imbalance</strong> (e.g., 99% negative cases, 1% positive cases). Standard cross-entropy loss would bias the network toward the majority class. </p>
+<p>To fix this, we use a <strong>Weighted Cross-Entropy Loss Function</strong>. 
+First, we calculate class frequencies:
+$$ freq_{p} = \frac{\text{number of positive examples}}{N} $$
+$$ freq_{n} = \frac{\text{number of negative examples}}{N} $$</p>
+<p>Then, we inversely weight the loss classes:
+$$ weight_{pos} = freq_{n} $$
+$$ weight_{neg} = freq_{p} $$</p>
+<p><strong>Weighted Loss Formula</strong> for the $i^{th}$ example across classes:
+$$ \mathcal{L}^{(i)}<em>{pos} = - weight</em>{pos} \times y^{(i)} \log(\hat{y}^{(i)} + \epsilon) $$
+$$ \mathcal{L}^{(i)}<em>{neg} = - weight</em>{neg} \times (1-y^{(i)}) \log(1-\hat{y}^{(i)} + \epsilon) $$
+$$ \mathcal{L}^{(i)} = \mathcal{L}^{(i)}<em>{pos} + \mathcal{L}^{(i)}</em>{neg} $$</p>
+<p><em>(We add an incredibly small term $\epsilon$ inside the log to avoid calculating the log of 0).</em></p>
+<h3 id="methods-codes_2">Methods &amp; Codes</h3>
+<pre><code class="language-python">import keras.backend as K
+import numpy as np
+
+# 1. Calculate class frequencies
+def compute_class_freqs(labels):
+    N = labels.shape[0]
+    positive_frequencies = np.sum(labels == 1, axis=0) / N
+    negative_frequencies = np.sum(labels == 0, axis=0) / N
+    return positive_frequencies, negative_frequencies
+
+# Calculate Weights
+pos_weights = neg_freqs # Inverse weighting
+neg_weights = pos_freqs
+
+# 2. Weighted Loss Function in Keras
+def get_weighted_loss(pos_weights, neg_weights, epsilon=1e-7):
+    def weighted_loss(y_true, y_pred):
+        loss = 0.0
+        for i in range(len(pos_weights)):
+            # Calculate loss for each class and sum them up
+            loss += -1 * K.mean(
+                pos_weights[i] * y_true[:, i] * K.log(y_pred[:, i] + epsilon) +
+                neg_weights[i] * (1 - y_true[:, i]) * K.log(1 - y_pred[:, i] + epsilon)
+            )
+        return loss
+    return weighted_loss
+</code></pre>
+<hr />
+<h2 id="4-modeling-densenet121">4. Modeling: DenseNet121</h2>
+<h3 id="concepts_3">Concepts</h3>
+<p><strong>DenseNet (Densely Connected Convolutional Networks)</strong> is used as the base pre-trained model. In DenseNet, every layer is connected directly to every other deeper layer. This alleviates the vanishing gradient problem, strengthens feature propagation, and massively reduces the number of parameters.</p>
+<p>We use <strong>Transfer Learning</strong>, freezing the base layers of the pre-trained DenseNet and adding a custom classification head (a Global Average Pooling layer followed by a Dense layer with a Sigmoid activation to deal with multi-label classification).</p>
+<h3 id="methods-codes_3">Methods &amp; Codes</h3>
+<pre><code class="language-python">from keras.applications.densenet import DenseNet121
+from keras.layers import Dense, GlobalAveragePooling2D
+from keras.models import Model
+
+# 1. Load Pre-trained Base Model
+base_model = DenseNet121(weights='./models/nih/densenet.hdf5', include_top=False)
+
+x = base_model.output
+
+# 2. Add custom top layers
+x_pool = GlobalAveragePooling2D()(x)
+predictions = Dense(len(labels), activation=&quot;sigmoid&quot;)(x_pool)
+
+# 3. Create the final compiled model
+model = Model(inputs=base_model.input, outputs=predictions)
+
+model.compile(
+    optimizer='adam',
+    loss=get_weighted_loss(pos_weights, neg_weights)
+)
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["search.suggest", "search.highlight", "toc.integrate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
