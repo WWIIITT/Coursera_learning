@@ -1,0 +1,118 @@
+.md-header__source {
+  width: auto;
+  max-width: 17rem;
+}
+
+.md-nav--primary > .md-nav__list > .md-nav__item > .md-nav__link {
+  margin-top: 0.35rem;
+  padding: 0.35rem 0.55rem;
+  border-radius: 0.35rem;
+}
+
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(2) > .md-nav__link,
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(3) > .md-nav__link,
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(4) > .md-nav__link {
+  font-weight: 700;
+}
+
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(2) > .md-nav__link {
+  color: #0f766e;
+  background: rgba(15, 118, 110, 0.08);
+}
+
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(3) > .md-nav__link {
+  color: #4338ca;
+  background: rgba(67, 56, 202, 0.08);
+}
+
+.md-nav--primary > .md-nav__list > .md-nav__item:nth-child(4) > .md-nav__link {
+  color: #b45309;
+  background: rgba(180, 83, 9, 0.09);
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+.course-card {
+  display: block;
+  height: 100%;
+  padding: 1rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-left-width: 0.35rem;
+  border-radius: 0.45rem;
+  color: var(--md-default-fg-color);
+  background: var(--md-default-bg-color);
+  transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+}
+
+.course-card:hover {
+  color: var(--md-default-fg-color);
+  box-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.course-card a {
+  color: inherit;
+}
+
+.course-card a:hover {
+  color: var(--md-accent-fg-color);
+}
+
+.course-card h3 {
+  margin: 0 0 0.35rem;
+}
+
+.course-card p {
+  margin: 0.3rem 0;
+}
+
+.course-card .course-meta {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.course-card.medical {
+  border-left-color: #0f766e;
+}
+
+.course-card.rag {
+  border-left-color: #4338ca;
+}
+
+.course-card.fullstack {
+  border-left-color: #b45309;
+}
+
+.track-badge {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.track-badge.medical {
+  color: #0f766e;
+  background: rgba(15, 118, 110, 0.1);
+}
+
+.track-badge.rag {
+  color: #4338ca;
+  background: rgba(67, 56, 202, 0.1);
+}
+
+.track-badge.fullstack {
+  color: #b45309;
+  background: rgba(180, 83, 9, 0.12);
+}

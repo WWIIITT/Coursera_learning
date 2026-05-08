@@ -1,5 +1,7 @@
 # IBM RAG & Agentic AI
 
+<span class="track-badge rag">RAG and Agents Track</span>
+
 ## What This Covers
 
 This program moves from basic generative AI applications to retrieval augmented generation, vector search, multimodal applications, tool-using agents, and multi-agent orchestration. The local materials include notebooks, readings, cheat sheets, labs, Python scripts, SQL assets, and application folders.

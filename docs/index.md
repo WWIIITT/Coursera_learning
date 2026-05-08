@@ -4,11 +4,27 @@ This site turns the local course materials in this repository into organized stu
 
 ## Course Catalog
 
-| Track | Coverage | Main focus |
-| --- | --- | --- |
-| [AI for Medical Diagnosis](ai-for-medical-diagnosis/index.md) | Week 1 and Week 2 | Chest X-ray classification, leakage prevention, weighted loss, DenseNet, diagnostic model metrics |
-| [IBM RAG & Agentic AI](ibm-rag-agentic-ai/index.md) | Courses 1 through 8 | Generative AI apps, RAG, vector databases, multimodal AI, agents, LangGraph, CrewAI, AutoGen, BeeAI |
-| [IBM Full Stack Software Developer](ibm-full-stack-software-developer/index.md) | HTML, CSS, and JavaScript course modules | HTML structure, semantic tags, forms, and browser-based labs |
+<div class="course-grid" markdown="1">
+
+<div class="course-card medical" markdown="1">
+<span class="course-meta">Medical AI Track</span>
+### [AI for Medical Diagnosis](ai-for-medical-diagnosis/index.md)
+Week 1 and Week 2 notes for chest X-ray classification, leakage prevention, weighted loss, DenseNet, and diagnostic model metrics.
+</div>
+
+<div class="course-card rag" markdown="1">
+<span class="course-meta">RAG and Agents Track</span>
+### [IBM RAG & Agentic AI](ibm-rag-agentic-ai/index.md)
+Eight-course path covering generative AI apps, RAG, vector databases, multimodal AI, tool use, LangGraph, CrewAI, AutoGen, and BeeAI.
+</div>
+
+<div class="course-card fullstack" markdown="1">
+<span class="course-meta">Web Foundation Track</span>
+### [IBM Full Stack Software Developer](ibm-full-stack-software-developer/index.md)
+HTML, CSS, and JavaScript module notes focused on semantic structure, common tags, forms, fieldsets, and legends.
+</div>
+
+</div>
 
 ## Current Coverage Summary
 

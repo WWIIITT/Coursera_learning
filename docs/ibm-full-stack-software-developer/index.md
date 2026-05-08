@@ -1,5 +1,7 @@
 # IBM Full Stack Software Developer
 
+<span class="track-badge fullstack">Web Foundation Track</span>
+
 ## What This Covers
 
 The local materials for this track currently cover the course "Introduction to HTML, CSS, & JavaScript," with modules on basic HTML and common HTML5 structural and form elements.

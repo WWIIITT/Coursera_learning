@@ -1,5 +1,7 @@
 # AI for Medical Diagnosis
 
+<span class="track-badge medical">Medical AI Track</span>
+
 ## What This Covers
 
 This course track follows a medical image classification workflow. Week 1 builds the chest X-ray model pipeline: explore labels, prevent leakage, preprocess images, handle class imbalance, and use DenseNet for multi-label disease prediction. Week 2 evaluates the model with diagnostic metrics that are more clinically meaningful than accuracy alone.
