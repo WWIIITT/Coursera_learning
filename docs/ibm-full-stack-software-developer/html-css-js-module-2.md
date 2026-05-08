@@ -1,5 +1,7 @@
 # HTML, CSS, and JavaScript - Module 2
 
+<span class="track-badge fullstack">IBM Full Stack Software Developer</span>
+
 ## What This Covers
 
 Module 2 covers common HTML5 tags and additional form elements, including `fieldset` and `legend`. It emphasizes semantic layout and clear grouping of related controls.

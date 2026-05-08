@@ -1,5 +1,7 @@
 # Course 1 - Develop Generative AI Applications
 
+<span class="track-badge rag">IBM RAG & Agentic AI</span>
+
 ## What This Covers
 
 This course introduces prompt engineering, in-context learning, LangChain basics, and Flask-style application scaffolding. The local materials include an in-context learning notebook, a LangChain notebook, Flask readings, deployment cheat sheets, and a model-selection lab with Python files such as `app.py`, `model.py`, `config.py`, and `llm_test.py`.

@@ -1,5 +1,7 @@
 # Course 3 - Vector Databases for RAG
 
+<span class="track-badge rag">IBM RAG & Agentic AI</span>
+
 ## What This Covers
 
 This course focuses on embeddings, similarity search, Chroma DB, filters, and recommendation-style retrieval. Local materials include notebooks for similarity search by hand, readings on vector databases and HNSW-style search, Chroma filtering notes, text search labs, employee record search, and a food recommendation practice project.

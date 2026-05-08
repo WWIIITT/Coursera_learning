@@ -1,5 +1,7 @@
 # Course 4 - Advanced RAG with Vector Databases and Retrievers
 
+<span class="track-badge rag">IBM RAG & Agentic AI</span>
+
 ## What This Covers
 
 This course expands basic RAG with advanced retrievers, LlamaIndex retrieval patterns, LangChain context retrieval, FAISS, HNSW concepts, and a YouTube summarizer and QA tool. The local materials include notebooks, cheat sheets, readings, and a `ytbot.py` lab script.

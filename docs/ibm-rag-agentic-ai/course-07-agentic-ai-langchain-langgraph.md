@@ -1,5 +1,7 @@
 # Course 7 - Agentic AI with LangChain and LangGraph
 
+<span class="track-badge rag">IBM RAG & Agentic AI</span>
+
 ## What This Covers
 
 This course focuses on LangGraph, stateful workflows, ReAct-style reasoning, Reflexion agents, structured tool calls, and multi-agent RAG. Local materials include readings on LangGraph architecture, LangGraph versus LangChain, agentic AI, Pydantic tool calls, Reflexion labs, ReAct agents, and a DocChat multi-agent RAG project.

@@ -1,5 +1,7 @@
 # HTML, CSS, and JavaScript - Module 1
 
+<span class="track-badge fullstack">IBM Full Stack Software Developer</span>
+
 ## What This Covers
 
 Module 1 introduces HTML through a hands-on JSFiddle lab. The focus is writing basic page content and understanding how HTML tags structure text and media in a browser.

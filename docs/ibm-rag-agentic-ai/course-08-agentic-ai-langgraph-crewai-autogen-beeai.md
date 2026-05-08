@@ -1,5 +1,7 @@
 # Course 8 - Agentic AI with LangGraph, CrewAI, AutoGen, and BeeAI
 
+<span class="track-badge rag">IBM RAG & Agentic AI</span>
+
 ## What This Covers
 
 This course compares and applies agent orchestration frameworks. Local materials include LangGraph workflow pattern notebooks, CrewAI readings and labs, a nutrition coach app, a structured meal and grocery planner, AG2 AutoGen tutorials, a healthcare multi-agent chatbot, and BeeAI framework materials.

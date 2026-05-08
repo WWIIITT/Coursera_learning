@@ -1,5 +1,7 @@
 # Week 1 - Chest X-Ray Diagnosis Pipeline
 
+<span class="track-badge medical">AI for Medical Diagnosis</span>
+
 ## What This Covers
 
 Week 1 covers the first half of the chest X-ray diagnosis workflow: data exploration, image preprocessing, patient overlap, class imbalance, weighted loss, DenseNet121, and transfer learning for multi-label classification.

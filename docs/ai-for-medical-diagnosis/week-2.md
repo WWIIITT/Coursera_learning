@@ -1,5 +1,7 @@
 # Week 2 - Diagnostic Model Evaluation
 
+<span class="track-badge medical">AI for Medical Diagnosis</span>
+
 ## What This Covers
 
 Week 2 evaluates diagnostic models after they produce prediction scores. It covers thresholded predictions, confusion-matrix counts, accuracy, prevalence, sensitivity, specificity, PPV, NPV, ROC/AUC, confidence intervals, precision-recall curves, F1 score, and calibration.

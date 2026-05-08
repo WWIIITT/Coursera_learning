@@ -1,5 +1,7 @@
 # Course 5 - Build Multimodal Generative AI Applications
 
+<span class="track-badge rag">IBM RAG & Agentic AI</span>
+
 ## What This Covers
 
 This course covers multimodal AI systems that combine text, audio, image, and video. Local materials include readings on multimodal AI, computer vision, speech processing, text-to-speech, vision models, image/video generation, and labs for a meeting assistant, image captioning, DALL-E image generation, nutrition coaching, and style-finder retrieval.

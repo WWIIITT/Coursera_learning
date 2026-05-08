@@ -1,5 +1,7 @@
 # Course 6 - Fundamentals of Building AI Agents
 
+<span class="track-badge rag">IBM RAG & Agentic AI</span>
+
 ## What This Covers
 
 This course introduces tools, function calling, LangChain built-in tools, LCEL, manual tool-calling agents, structured outputs, data science agents, visualization agents, and natural-language SQL agents. Local materials include notebooks, readings, cheat sheets, Python scripts, and the Chinook SQL database file.

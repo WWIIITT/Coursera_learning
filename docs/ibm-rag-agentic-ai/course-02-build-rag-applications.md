@@ -1,5 +1,7 @@
 # Course 2 - Build RAG Applications
 
+<span class="track-badge rag">IBM RAG & Agentic AI</span>
+
 ## What This Covers
 
 This course introduces retrieval augmented generation, document question answering, Gradio interfaces, and the difference between LangChain and LlamaIndex. The local files include RAG cheat sheets, readings, a private-document summarization notebook, QA bot scripts, and Gradio demos for text and chat interfaces.
