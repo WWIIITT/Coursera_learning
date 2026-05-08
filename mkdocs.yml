@@ -1,6 +1,7 @@
-site_name: "AI for Medical Diagnosis - Week 1 Summary"
-site_description: "Summary of methods, concepts, formulas, and code for building chest X-ray medical diagnosis models."
-theme: 
+site_name: "Coursera Learning Notes"
+site_description: "Detailed study notes, formulas, code patterns, and takeaways from local Coursera course materials."
+
+theme:
   name: material
   palette:
     scheme: default
@@ -8,6 +9,43 @@ theme:
   features:
     - search.suggest
     - search.highlight
+    - navigation.sections
+    - navigation.top
     - toc.integrate
+
 nav:
   - Home: index.md
+  - AI for Medical Diagnosis:
+      - Overview: ai-for-medical-diagnosis/index.md
+      - Week 1 - Chest X-Ray Diagnosis Pipeline: ai-for-medical-diagnosis/week-1.md
+      - Week 2 - Diagnostic Model Evaluation: ai-for-medical-diagnosis/week-2.md
+  - IBM RAG & Agentic AI:
+      - Overview: ibm-rag-agentic-ai/index.md
+      - Course 1 - Develop Generative AI Applications: ibm-rag-agentic-ai/course-01-develop-generative-ai-applications.md
+      - Course 2 - Build RAG Applications: ibm-rag-agentic-ai/course-02-build-rag-applications.md
+      - Course 3 - Vector Databases for RAG: ibm-rag-agentic-ai/course-03-vector-databases-for-rag.md
+      - Course 4 - Advanced RAG and Retrievers: ibm-rag-agentic-ai/course-04-advanced-rag-vector-databases-retrievers.md
+      - Course 5 - Multimodal Generative AI: ibm-rag-agentic-ai/course-05-multimodal-generative-ai-applications.md
+      - Course 6 - Building AI Agents: ibm-rag-agentic-ai/course-06-fundamentals-building-ai-agents.md
+      - Course 7 - LangChain and LangGraph Agents: ibm-rag-agentic-ai/course-07-agentic-ai-langchain-langgraph.md
+      - Course 8 - LangGraph, CrewAI, AutoGen, and BeeAI: ibm-rag-agentic-ai/course-08-agentic-ai-langgraph-crewai-autogen-beeai.md
+  - IBM Full Stack Software Developer:
+      - Overview: ibm-full-stack-software-developer/index.md
+      - HTML, CSS, and JavaScript - Module 1: ibm-full-stack-software-developer/html-css-js-module-1.md
+      - HTML, CSS, and JavaScript - Module 2: ibm-full-stack-software-developer/html-css-js-module-2.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
