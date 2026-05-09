@@ -132,7 +132,7 @@ Where:
 - \(FP\): voxel is predicted positive but truly negative.
 - \(FN\): voxel is predicted negative but truly positive.
 
-## Human-Readable Explanation
+## Explanation
 
 Classification asks whether a disease is present in an image. Segmentation asks where the disease is. In Week 3, the model must label every voxel in a brain MRI volume as edema, non-enhancing tumor, enhancing tumor, or background.
 

@@ -41,7 +41,7 @@ Where:
 - The query defines which table, filters, and joins are included.
 - The result may be grouped by columns when `GROUP BY` is used.
 
-## Human-Readable Explanation
+## Explanation
 
 The course separates plain LLM calls from agentic workflows. A plain LLM responds directly. An agent can inspect the request, choose a tool, observe the result, and continue. This is powerful for tasks where the model needs facts, calculations, database access, or generated charts.
 

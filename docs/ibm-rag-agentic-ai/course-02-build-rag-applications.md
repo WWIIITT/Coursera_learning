@@ -34,7 +34,7 @@ Retrieval precision means the retrieved set contains mostly useful chunks.
 \text{Precision} = \frac{\text{useful chunks retrieved}}{\text{total chunks retrieved}}
 \]
 
-## Human-Readable Explanation
+## Explanation
 
 RAG is useful when the answer should be grounded in private or changing documents. The system first prepares documents for search. It splits them into chunks, embeds each chunk into a vector, stores the vectors, retrieves relevant chunks for a user question, and asks the LLM to answer using that retrieved context.
 

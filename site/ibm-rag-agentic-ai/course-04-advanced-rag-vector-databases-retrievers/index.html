@@ -691,10 +691,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#human-readable-explanation" class="md-nav__link">
+  <a href="#explanation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Human-Readable Explanation
+        Explanation
       
     </span>
   </a>
@@ -1076,10 +1076,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#human-readable-explanation" class="md-nav__link">
+  <a href="#explanation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Human-Readable Explanation
+        Explanation
       
     </span>
   </a>
@@ -1183,7 +1183,7 @@
 <li><span class="arithmatex">\(r(q,d)\)</span> is the reranker score for query <span class="arithmatex">\(q\)</span> and document <span class="arithmatex">\(d\)</span>.</li>
 <li><span class="arithmatex">\(n\)</span> is the number of initially retrieved candidates.</li>
 </ul>
-<h2 id="human-readable-explanation">Human-Readable Explanation</h2>
+<h2 id="explanation">Explanation</h2>
 <p>Basic RAG can fail when the correct answer is split across chunks, when the query is phrased differently from the source, or when the retrieved chunks are semantically similar but not actually useful. Advanced retrievers try to reduce those failures.</p>
 <p>The FAISS and HNSW materials focus on speed and scale. Instead of comparing a query against every stored vector, approximate nearest-neighbor methods search an index structure that is much faster while usually returning close matches.</p>
 <p>The YouTube summarizer and QA lab shows a complete applied pattern: ingest transcript text, create searchable chunks, retrieve context for user questions, and generate answers or summaries grounded in the transcript.</p>

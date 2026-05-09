@@ -40,7 +40,7 @@ Where:
 - Original size is the raw or source media size.
 - Compressed size is the stored or transmitted media size.
 
-## Human-Readable Explanation
+## Explanation
 
 The meeting assistant lab demonstrates a common audio workflow: download or receive audio, transcribe it, summarize the transcript, and expose the result through Gradio. The important design point is that the LLM usually works on text after another model converts speech into text.
 

@@ -95,7 +95,7 @@ Where:
 - Precision is the same idea as PPV.
 - Recall is the same idea as sensitivity.
 
-## Human-Readable Explanation
+## Explanation
 
 Thresholds control the tradeoff between missed disease and false alarms. If the threshold is high, the model requires strong evidence before predicting disease, which usually increases specificity and lowers sensitivity. If the threshold is low, the model catches more true disease but may create more false positives.
 

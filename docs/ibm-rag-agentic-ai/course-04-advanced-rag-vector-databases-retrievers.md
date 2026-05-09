@@ -40,7 +40,7 @@ Where:
 - \(r(q,d)\) is the reranker score for query \(q\) and document \(d\).
 - \(n\) is the number of initially retrieved candidates.
 
-## Human-Readable Explanation
+## Explanation
 
 Basic RAG can fail when the correct answer is split across chunks, when the query is phrased differently from the source, or when the retrieved chunks are semantically similar but not actually useful. Advanced retrievers try to reduce those failures.
 

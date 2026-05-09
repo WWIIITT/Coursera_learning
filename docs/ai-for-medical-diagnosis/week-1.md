@@ -75,7 +75,7 @@ Where:
 - \(\hat{y}\) is the model's predicted probability.
 - \(\epsilon\) is a tiny number added to avoid taking \(\log(0)\).
 
-## Human-Readable Explanation
+## Explanation
 
 The workflow begins with simple but important questions: how many examples exist for each disease, how many positive labels are available, and whether the split accidentally includes the same patient in multiple groups. These checks matter because medical models are often evaluated on rare events, and leakage can hide weak generalization.
 

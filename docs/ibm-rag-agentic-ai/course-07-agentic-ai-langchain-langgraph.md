@@ -41,7 +41,7 @@ Where:
 - \(f_{\text{node}}\) is the node function.
 - \(s'\) is the updated state passed to the next node.
 
-## Human-Readable Explanation
+## Explanation
 
 LangGraph makes the control flow visible. Instead of letting an agent loop implicitly, the developer defines states, nodes, and transitions. This is useful when a workflow needs predictable steps, retries, branching, or human review.
 

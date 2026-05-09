@@ -40,7 +40,7 @@ Where:
 - Number of agents is the count of participating agents.
 - Max rounds is the configured conversation limit.
 
-## Human-Readable Explanation
+## Explanation
 
 CrewAI frames agentic work as a team with roles and tasks. For example, a nutrition coach can use separate roles for analyzing dietary needs, planning meals, and producing a shopping guide. The structure makes the output easier to reason about than one large prompt.
 

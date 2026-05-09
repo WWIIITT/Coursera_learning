@@ -408,10 +408,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#human-readable-explanation" class="md-nav__link">
+  <a href="#explanation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Human-Readable Explanation
+        Explanation
       
     </span>
   </a>
@@ -1076,10 +1076,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#human-readable-explanation" class="md-nav__link">
+  <a href="#explanation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Human-Readable Explanation
+        Explanation
       
     </span>
   </a>
@@ -1198,7 +1198,7 @@
 <li><span class="arithmatex">\(y_{\text{pred}}\)</span> is the predicted segmentation mask.</li>
 <li><span class="arithmatex">\(\epsilon\)</span> prevents division by zero.</li>
 </ul>
-<h2 id="human-readable-explanation">Human-Readable Explanation</h2>
+<h2 id="explanation">Explanation</h2>
 <p>The pipeline starts by asking whether the data split is trustworthy. If the same patient appears in both training and validation data, the model may appear to perform well because it recognizes patient-specific patterns instead of learning disease evidence. After the split is trusted, images are standardized, class imbalance is handled through loss weighting, and a DenseNet-based classifier learns a probability for each disease label.</p>
 <p>Evaluation then asks a different question: if the model produces probabilities, what happens when those probabilities are turned into decisions? A high threshold reduces false positives but can miss real disease. A low threshold catches more disease but can create more false alarms. The Week 2 metrics explain these tradeoffs.</p>
 <p>Week 3 changes the output type. Instead of predicting whether an image has a disease label, the model predicts where tumor tissue appears in a 3D MRI. That requires patch extraction, 3D convolutions, and overlap-based metrics. The A3 pretrained 3D U-Net weights are available at <a href="https://huggingface.co/WWWIIITTT/UNet-3D/blob/main/model_pretrained.hdf5">this Hugging Face link</a>.</p>

@@ -436,10 +436,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#human-readable-explanation" class="md-nav__link">
+  <a href="#explanation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Human-Readable Explanation
+        Explanation
       
     </span>
   </a>
@@ -1076,10 +1076,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#human-readable-explanation" class="md-nav__link">
+  <a href="#explanation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Human-Readable Explanation
+        Explanation
       
     </span>
   </a>
@@ -1211,7 +1211,7 @@ L = -w_{\text{pos}} y \log(\hat{y} + \epsilon) - w_{\text{neg}}(1-y)\log(1-\hat{
 <li><span class="arithmatex">\(\hat{y}\)</span> is the model's predicted probability.</li>
 <li><span class="arithmatex">\(\epsilon\)</span> is a tiny number added to avoid taking <span class="arithmatex">\(\log(0)\)</span>.</li>
 </ul>
-<h2 id="human-readable-explanation">Human-Readable Explanation</h2>
+<h2 id="explanation">Explanation</h2>
 <p>The workflow begins with simple but important questions: how many examples exist for each disease, how many positive labels are available, and whether the split accidentally includes the same patient in multiple groups. These checks matter because medical models are often evaluated on rare events, and leakage can hide weak generalization.</p>
 <p>The preprocessing step uses image generators to resize and normalize images. Training images can be transformed and normalized during training, but validation and test examples should be processed consistently using training-derived statistics. This simulates real inference more honestly.</p>
 <p>The weighted loss addresses imbalance. If a disease is rare, a model can look good by predicting "not present" most of the time. Weighted loss makes mistakes on the rare side more expensive, giving the model a reason to learn those findings.</p>

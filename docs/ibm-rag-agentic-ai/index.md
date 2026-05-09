@@ -43,7 +43,7 @@ Retrieval recall means: among all relevant documents, how many were retrieved.
 \text{Recall} = \frac{\text{relevant retrieved documents}}{\text{all relevant documents}}
 \]
 
-## Human-Readable Explanation
+## Explanation
 
 The program starts with simple LLM calls and prompt templates, then builds toward systems where the model can search private data, respond through interfaces, call functions, use tools, and collaborate with other agents. RAG is the central bridge: it connects model reasoning to external knowledge by retrieving context before generation.
 

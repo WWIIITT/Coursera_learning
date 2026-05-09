@@ -503,10 +503,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#human-readable-explanation" class="md-nav__link">
+  <a href="#explanation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Human-Readable Explanation
+        Explanation
       
     </span>
   </a>
@@ -1098,10 +1098,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#human-readable-explanation" class="md-nav__link">
+  <a href="#explanation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Human-Readable Explanation
+        Explanation
       
     </span>
   </a>
@@ -1268,7 +1268,7 @@ x_{\text{standardized}} = \frac{x - \mu_{c,z}}{\sigma_{c,z}}
 <li><span class="arithmatex">\(FP\)</span>: voxel is predicted positive but truly negative.</li>
 <li><span class="arithmatex">\(FN\)</span>: voxel is predicted negative but truly positive.</li>
 </ul>
-<h2 id="human-readable-explanation">Human-Readable Explanation</h2>
+<h2 id="explanation">Explanation</h2>
 <p>Classification asks whether a disease is present in an image. Segmentation asks where the disease is. In Week 3, the model must label every voxel in a brain MRI volume as edema, non-enhancing tumor, enhancing tumor, or background.</p>
 <p>The raw data is too large to use as full volumes during ordinary training, so the notebook samples smaller 3D patches. A random corner is chosen, a patch is extracted, and the label patch is one-hot encoded. If the patch is mostly background, it is rejected and another patch is sampled. This makes training examples more informative because the model sees enough tumor voxels to learn from.</p>
 <p>The MRI channels can have different intensity distributions. The standardization step normalizes each channel and slice separately so the model sees values on a more stable scale.</p>

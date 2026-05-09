@@ -57,7 +57,7 @@ Where:
 - \(y_{\text{pred}}\) is the predicted segmentation mask.
 - \(\epsilon\) prevents division by zero.
 
-## Human-Readable Explanation
+## Explanation
 
 The pipeline starts by asking whether the data split is trustworthy. If the same patient appears in both training and validation data, the model may appear to perform well because it recognizes patient-specific patterns instead of learning disease evidence. After the split is trusted, images are standardized, class imbalance is handled through loss weighting, and a DenseNet-based classifier learns a probability for each disease label.
 

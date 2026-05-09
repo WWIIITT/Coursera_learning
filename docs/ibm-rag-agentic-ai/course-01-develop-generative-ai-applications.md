@@ -29,7 +29,7 @@ Where:
 - Cost constraint is the budget per request or per user.
 - Context need is how much source text the model must consider.
 
-## Human-Readable Explanation
+## Explanation
 
 The course starts with direct model use: provide instructions, include examples, and inspect output quality. Prompt templates turn these instructions into maintainable building blocks, especially when applications need to insert user questions, context, or formatting instructions.
 

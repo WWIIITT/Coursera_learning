@@ -28,7 +28,7 @@ Where:
 - The content is what appears inside the element.
 - The closing tag ends the element, such as `</p>`.
 
-## Human-Readable Explanation
+## Explanation
 
 HTML tells the browser what the page contains. A heading is not just bigger text; it marks a section title. A link is not just blue underlined text; it creates navigation. This distinction matters because semantic tags help people, search engines, and assistive technologies understand the page.
 

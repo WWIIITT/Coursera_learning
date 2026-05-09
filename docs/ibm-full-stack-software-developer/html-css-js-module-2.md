@@ -28,7 +28,7 @@ Where:
 - `legend` names the group.
 - Related controls are inputs, checkboxes, radio buttons, or selects that belong together.
 
-## Human-Readable Explanation
+## Explanation
 
 Semantic HTML makes a page easier to scan and maintain. A navigation menu should live in `nav`; the main unique content should live in `main`; a standalone content piece can use `article`; and supporting page information can live in `footer`.
 

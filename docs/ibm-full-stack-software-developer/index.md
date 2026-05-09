@@ -28,7 +28,7 @@ Where:
 - Presentation is CSS.
 - Behavior is JavaScript.
 
-## Human-Readable Explanation
+## Explanation
 
 This track introduces the browser as an application platform. HTML is the foundation because it describes what the content means. CSS changes how that content looks. JavaScript responds to user actions and updates the page.
 

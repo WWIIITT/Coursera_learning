@@ -39,7 +39,7 @@ Where:
 - The denominator normalizes by vector length.
 - A value closer to 1 usually means stronger semantic similarity.
 
-## Human-Readable Explanation
+## Explanation
 
 The course shows why vector search is different from keyword search. Keyword search looks for literal terms; vector search looks for meaning represented in embedding space. This allows a query such as "healthy dinner with vegetables" to match records that may not use exactly those words.
 
