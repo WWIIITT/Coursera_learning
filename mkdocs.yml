@@ -25,6 +25,7 @@ nav:
       - Overview: ai-for-medical-diagnosis/index.md
       - Week 1 - Chest X-Ray Diagnosis Pipeline: ai-for-medical-diagnosis/week-1.md
       - Week 2 - Diagnostic Model Evaluation: ai-for-medical-diagnosis/week-2.md
+      - Week 3 - Brain Tumor Auto-Segmentation: ai-for-medical-diagnosis/week-3.md
   - IBM RAG & Agentic AI:
       - Overview: ibm-rag-agentic-ai/index.md
       - Course 1 - Develop Generative AI Applications: ibm-rag-agentic-ai/course-01-develop-generative-ai-applications.md

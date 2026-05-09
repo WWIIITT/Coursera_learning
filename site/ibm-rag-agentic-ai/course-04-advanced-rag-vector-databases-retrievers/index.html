@@ -11,26 +11,28 @@
       
       
       
+        <link rel="prev" href="../course-03-vector-databases-for-rag/">
       
-        <link rel="next" href="ai-for-medical-diagnosis/">
+      
+        <link rel="next" href="../course-05-multimodal-generative-ai-applications/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Coursera Learning Notes</title>
+        <title>Course 4 - Advanced RAG and Retrievers - Coursera Learning Notes</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/course-groups.css">
+      <link rel="stylesheet" href="../../stylesheets/course-groups.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#coursera-learning-notes" class="md-skip">
+        <a href="#course-4-advanced-rag-with-vector-databases-and-retrievers" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Coursera Learning Notes" class="md-header__button md-logo" aria-label="Coursera Learning Notes" data-md-component="logo">
+    <a href="../.." title="Coursera Learning Notes" class="md-header__button md-logo" aria-label="Coursera Learning Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -110,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Course 4 - Advanced RAG and Retrievers
             
           </span>
         </div>
@@ -202,7 +204,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Coursera Learning Notes" class="md-nav__button md-logo" aria-label="Coursera Learning Notes" data-md-component="logo">
+    <a href="../.." title="Coursera Learning Notes" class="md-nav__button md-logo" aria-label="Coursera Learning Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -229,37 +231,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -275,120 +250,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#course-catalog" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Course Catalog
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Course Catalog">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ai-for-medical-diagnosis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AI for Medical Diagnosis
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ibm-rag-agentic-ai" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        IBM RAG &amp; Agentic AI
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ibm-full-stack-software-developer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        IBM Full Stack Software Developer
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#current-coverage-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Current Coverage Summary
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-read-formulas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How to Read Formulas
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-read-code-snippets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How to Read Code Snippets
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#main-concepts-by-track" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Main Concepts by Track
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -452,7 +313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ai-for-medical-diagnosis/" class="md-nav__link">
+      <a href="../../ai-for-medical-diagnosis/" class="md-nav__link">
         
   
   
@@ -480,7 +341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ai-for-medical-diagnosis/week-1/" class="md-nav__link">
+      <a href="../../ai-for-medical-diagnosis/week-1/" class="md-nav__link">
         
   
   
@@ -508,7 +369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ai-for-medical-diagnosis/week-2/" class="md-nav__link">
+      <a href="../../ai-for-medical-diagnosis/week-2/" class="md-nav__link">
         
   
   
@@ -536,7 +397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ai-for-medical-diagnosis/week-3/" class="md-nav__link">
+      <a href="../../ai-for-medical-diagnosis/week-3/" class="md-nav__link">
         
   
   
@@ -568,8 +429,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -580,11 +443,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
@@ -605,7 +468,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -623,7 +486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-rag-agentic-ai/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -651,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-rag-agentic-ai/course-01-develop-generative-ai-applications/" class="md-nav__link">
+      <a href="../course-01-develop-generative-ai-applications/" class="md-nav__link">
         
   
   
@@ -679,7 +542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-rag-agentic-ai/course-02-build-rag-applications/" class="md-nav__link">
+      <a href="../course-02-build-rag-applications/" class="md-nav__link">
         
   
   
@@ -707,7 +570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-rag-agentic-ai/course-03-vector-databases-for-rag/" class="md-nav__link">
+      <a href="../course-03-vector-databases-for-rag/" class="md-nav__link">
         
   
   
@@ -732,10 +595,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="ibm-rag-agentic-ai/course-04-advanced-rag-vector-databases-retrievers/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course 4 - Advanced RAG and Retrievers
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -751,6 +641,103 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What This Covers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-ideas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Ideas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Formulas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#human-readable-explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human-Readable Explanation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-code-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Code Patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -763,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-rag-agentic-ai/course-05-multimodal-generative-ai-applications/" class="md-nav__link">
+      <a href="../course-05-multimodal-generative-ai-applications/" class="md-nav__link">
         
   
   
@@ -791,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-rag-agentic-ai/course-06-fundamentals-building-ai-agents/" class="md-nav__link">
+      <a href="../course-06-fundamentals-building-ai-agents/" class="md-nav__link">
         
   
   
@@ -819,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-rag-agentic-ai/course-07-agentic-ai-langchain-langgraph/" class="md-nav__link">
+      <a href="../course-07-agentic-ai-langchain-langgraph/" class="md-nav__link">
         
   
   
@@ -847,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-rag-agentic-ai/course-08-agentic-ai-langgraph-crewai-autogen-beeai/" class="md-nav__link">
+      <a href="../course-08-agentic-ai-langgraph-crewai-autogen-beeai/" class="md-nav__link">
         
   
   
@@ -934,7 +921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-full-stack-software-developer/" class="md-nav__link">
+      <a href="../../ibm-full-stack-software-developer/" class="md-nav__link">
         
   
   
@@ -962,7 +949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-full-stack-software-developer/html-css-js-module-1/" class="md-nav__link">
+      <a href="../../ibm-full-stack-software-developer/html-css-js-module-1/" class="md-nav__link">
         
   
   
@@ -990,7 +977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-full-stack-software-developer/html-css-js-module-2/" class="md-nav__link">
+      <a href="../../ibm-full-stack-software-developer/html-css-js-module-2/" class="md-nav__link">
         
   
   
@@ -1045,60 +1032,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#course-catalog" class="md-nav__link">
+  <a href="#what-this-covers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Course Catalog
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Course Catalog">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ai-for-medical-diagnosis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AI for Medical Diagnosis
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ibm-rag-agentic-ai" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        IBM RAG &amp; Agentic AI
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ibm-full-stack-software-developer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        IBM Full Stack Software Developer
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#current-coverage-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Current Coverage Summary
+        What This Covers
       
     </span>
   </a>
@@ -1106,10 +1043,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-read-formulas" class="md-nav__link">
+  <a href="#core-ideas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How to Read Formulas
+        Core Ideas
       
     </span>
   </a>
@@ -1117,10 +1054,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-read-code-snippets" class="md-nav__link">
+  <a href="#important-formulas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How to Read Code Snippets
+        Important Formulas
       
     </span>
   </a>
@@ -1128,10 +1065,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#main-concepts-by-track" class="md-nav__link">
+  <a href="#human-readable-explanation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Main Concepts by Track
+        Human-Readable Explanation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-code-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Code Patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Takeaways
       
     </span>
   </a>
@@ -1158,52 +1128,61 @@
   
 
 
-<h1 id="coursera-learning-notes">Coursera Learning Notes</h1>
-<p>This site turns the local course materials in this repository into organized study notes. It is written course by course, then week by week or module by module, so that each page can be read as a focused review rather than as a raw notebook export.</p>
-<h2 id="course-catalog">Course Catalog</h2>
-<div class="course-grid">
-<div class="course-card medical">
-<p><span class="course-meta">Medical AI Track</span></p>
-<h3 id="ai-for-medical-diagnosis"><a href="ai-for-medical-diagnosis/">AI for Medical Diagnosis</a></h3>
-<p>Week 1 and Week 2 notes for chest X-ray classification, leakage prevention, weighted loss, DenseNet, and diagnostic model metrics.</p>
-</div>
-<div class="course-card rag">
-<p><span class="course-meta">RAG and Agents Track</span></p>
-<h3 id="ibm-rag-agentic-ai"><a href="ibm-rag-agentic-ai/">IBM RAG &amp; Agentic AI</a></h3>
-<p>Eight-course path covering generative AI apps, RAG, vector databases, multimodal AI, tool use, LangGraph, CrewAI, AutoGen, and BeeAI.</p>
-</div>
-<div class="course-card fullstack">
-<p><span class="course-meta">Web Foundation Track</span></p>
-<h3 id="ibm-full-stack-software-developer"><a href="ibm-full-stack-software-developer/">IBM Full Stack Software Developer</a></h3>
-<p>HTML, CSS, and JavaScript module notes focused on semantic structure, common tags, forms, fieldsets, and legends.</p>
-</div>
-</div>
-<h2 id="current-coverage-summary">Current Coverage Summary</h2>
-<p>The notes summarize notebooks, PDFs, Python scripts, SQL files, and existing markdown that are available locally in the repo. Generated folders, virtual environments, model weights, datasets, and built site artifacts are intentionally not summarized.</p>
-<p>The largest track is IBM RAG &amp; Agentic AI. It progresses from basic generative AI application patterns to retrieval augmented generation, vector search, multimodal systems, tool calling, and multi-agent orchestration. The medical diagnosis track focuses on an end-to-end chest X-ray classification workflow and then evaluates predictions with human-readable diagnostic metrics.</p>
-<h2 id="how-to-read-formulas">How to Read Formulas</h2>
-<p>Every important formula is written in three parts:</p>
-<ol>
-<li>A plain-language sentence that says what the formula measures.</li>
-<li>A displayed equation using readable mathematical notation.</li>
-<li>A short symbol list that defines each term.</li>
-</ol>
-<p>For example, sensitivity means: among cases that are truly positive, how many did the model correctly call positive?</p>
+<h1 id="course-4-advanced-rag-with-vector-databases-and-retrievers">Course 4 - Advanced RAG with Vector Databases and Retrievers</h1>
+<p><span class="track-badge rag">IBM RAG &amp; Agentic AI</span></p>
+<h2 id="what-this-covers">What This Covers</h2>
+<p>This course expands basic RAG with advanced retrievers, LlamaIndex retrieval patterns, LangChain context retrieval, FAISS, HNSW concepts, and a YouTube summarizer and QA tool. The local materials include notebooks, cheat sheets, readings, and a <code>ytbot.py</code> lab script.</p>
+<h2 id="core-ideas">Core Ideas</h2>
+<ul>
+<li>Better RAG often means better retrieval, not just a stronger LLM.</li>
+<li>Retrievers can use chunking strategies, similarity search, metadata filters, reranking, and query transformation.</li>
+<li>FAISS provides efficient similarity search for dense vectors.</li>
+<li>HNSW approximates nearest-neighbor search using a navigable graph.</li>
+<li>Summarization and QA can share the same retrieval foundation but require different prompting.</li>
+</ul>
+<h2 id="important-formulas">Important Formulas</h2>
+<p>Top-<span class="arithmatex">\(k\)</span> retrieval means selecting the <span class="arithmatex">\(k\)</span> highest-scoring candidates.</p>
 <div class="arithmatex">\[
-\text{Sensitivity} = \frac{TP}{TP + FN}
+\text{Top-}k = \operatorname*{arg\,max}_{k} \; s(q, d)
 \]</div>
 <p>Where:</p>
 <ul>
-<li><span class="arithmatex">\(TP\)</span> means true positives.</li>
-<li><span class="arithmatex">\(FN\)</span> means false negatives.</li>
-<li><span class="arithmatex">\(TP + FN\)</span> means all actually positive cases.</li>
+<li><span class="arithmatex">\(q\)</span> is the query.</li>
+<li><span class="arithmatex">\(d\)</span> is a candidate document chunk.</li>
+<li><span class="arithmatex">\(s(q,d)\)</span> is the similarity score.</li>
+<li><span class="arithmatex">\(k\)</span> is the number of chunks returned.</li>
 </ul>
-<h2 id="how-to-read-code-snippets">How to Read Code Snippets</h2>
-<p>Code snippets are short patterns, not complete lab copies. They show the shape of the solution, the important API calls, and the reasoning behind the implementation. Use the original notebooks and scripts in the repository when you need complete runnable examples.</p>
-<h2 id="main-concepts-by-track">Main Concepts by Track</h2>
-<p>AI for Medical Diagnosis emphasizes data discipline. The key ideas are avoiding patient overlap, using training statistics correctly, handling class imbalance, building a multi-label classifier, and reading medical metrics without confusing accuracy with clinical usefulness.</p>
-<p>IBM RAG &amp; Agentic AI emphasizes system design. The key ideas are connecting LLMs to external data, retrieving relevant context, indexing embeddings, using tools and function calls, adding orchestration, and splitting complex workflows across specialized agents.</p>
-<p>IBM Full Stack Software Developer introduces the browser foundation. The key ideas are using semantic HTML, structuring pages clearly, and choosing form elements that communicate meaning to users and assistive technology.</p>
+<p>Reranking means retrieving a broad candidate set first, then applying a stronger scoring function.</p>
+<div class="arithmatex">\[
+\text{final rank} = \operatorname{sort}(r(q,d_1), r(q,d_2), \ldots, r(q,d_n))
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(r(q,d)\)</span> is the reranker score for query <span class="arithmatex">\(q\)</span> and document <span class="arithmatex">\(d\)</span>.</li>
+<li><span class="arithmatex">\(n\)</span> is the number of initially retrieved candidates.</li>
+</ul>
+<h2 id="human-readable-explanation">Human-Readable Explanation</h2>
+<p>Basic RAG can fail when the correct answer is split across chunks, when the query is phrased differently from the source, or when the retrieved chunks are semantically similar but not actually useful. Advanced retrievers try to reduce those failures.</p>
+<p>The FAISS and HNSW materials focus on speed and scale. Instead of comparing a query against every stored vector, approximate nearest-neighbor methods search an index structure that is much faster while usually returning close matches.</p>
+<p>The YouTube summarizer and QA lab shows a complete applied pattern: ingest transcript text, create searchable chunks, retrieve context for user questions, and generate answers or summaries grounded in the transcript.</p>
+<h2 id="key-code-patterns">Key Code Patterns</h2>
+<p>Create a retriever from a vector store:</p>
+<div class="highlight"><pre><span></span><code><span class="n">retriever</span> <span class="o">=</span> <span class="n">vectorstore</span><span class="o">.</span><span class="n">as_retriever</span><span class="p">(</span><span class="n">search_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+<span class="n">docs</span> <span class="o">=</span> <span class="n">retriever</span><span class="o">.</span><span class="n">get_relevant_documents</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+</code></pre></div>
+<p>Use retrieved transcript chunks for QA:</p>
+<div class="highlight"><pre><span></span><code><span class="n">context</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">page_content</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">)</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use this transcript context:</span><span class="se">\n</span><span class="si">{</span><span class="n">context</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">Question: </span><span class="si">{</span><span class="n">question</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="common-mistakes">Common Mistakes</h2>
+<ul>
+<li>Increasing <code>k</code> without checking whether the extra chunks add noise.</li>
+<li>Summarizing long content without preserving source boundaries.</li>
+<li>Using approximate search without validating retrieval quality.</li>
+<li>Forgetting that reranking can improve quality but adds latency.</li>
+</ul>
+<h2 id="takeaways">Takeaways</h2>
+<p>Course 4 is about retrieval quality. The best generated answer starts with the right evidence, in the right amount, with the right ranking.</p>
 
 
 
@@ -1259,12 +1238,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["search.suggest", "search.highlight", "navigation.sections", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["search.suggest", "search.highlight", "navigation.sections", "navigation.top"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       

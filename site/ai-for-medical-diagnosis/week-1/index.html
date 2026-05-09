@@ -11,26 +11,28 @@
       
       
       
+        <link rel="prev" href="../">
       
-        <link rel="next" href="ai-for-medical-diagnosis/">
+      
+        <link rel="next" href="../week-2/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Coursera Learning Notes</title>
+        <title>Week 1 - Chest X-Ray Diagnosis Pipeline - Coursera Learning Notes</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/course-groups.css">
+      <link rel="stylesheet" href="../../stylesheets/course-groups.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#coursera-learning-notes" class="md-skip">
+        <a href="#week-1-chest-x-ray-diagnosis-pipeline" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Coursera Learning Notes" class="md-header__button md-logo" aria-label="Coursera Learning Notes" data-md-component="logo">
+    <a href="../.." title="Coursera Learning Notes" class="md-header__button md-logo" aria-label="Coursera Learning Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -110,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Week 1 - Chest X-Ray Diagnosis Pipeline
             
           </span>
         </div>
@@ -202,7 +204,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Coursera Learning Notes" class="md-nav__button md-logo" aria-label="Coursera Learning Notes" data-md-component="logo">
+    <a href="../.." title="Coursera Learning Notes" class="md-nav__button md-logo" aria-label="Coursera Learning Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -229,6 +231,115 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI for Medical Diagnosis
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI for Medical Diagnosis
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -248,7 +359,7 @@
   <span class="md-ellipsis">
     
   
-    Home
+    Week 1 - Chest X-Ray Diagnosis Pipeline
   
 
     
@@ -259,14 +370,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="." class="md-nav__link md-nav__link--active">
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    Home
+    Week 1 - Chest X-Ray Diagnosis Pipeline
   
 
     
@@ -292,60 +403,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#course-catalog" class="md-nav__link">
+  <a href="#what-this-covers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Course Catalog
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Course Catalog">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ai-for-medical-diagnosis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AI for Medical Diagnosis
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ibm-rag-agentic-ai" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        IBM RAG &amp; Agentic AI
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ibm-full-stack-software-developer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        IBM Full Stack Software Developer
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#current-coverage-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Current Coverage Summary
+        What This Covers
       
     </span>
   </a>
@@ -353,10 +414,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-read-formulas" class="md-nav__link">
+  <a href="#core-ideas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How to Read Formulas
+        Core Ideas
       
     </span>
   </a>
@@ -364,10 +425,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-read-code-snippets" class="md-nav__link">
+  <a href="#important-formulas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How to Read Code Snippets
+        Important Formulas
       
     </span>
   </a>
@@ -375,10 +436,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#main-concepts-by-track" class="md-nav__link">
+  <a href="#human-readable-explanation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Main Concepts by Track
+        Human-Readable Explanation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-code-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Code Patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Takeaways
       
     </span>
   </a>
@@ -392,85 +486,6 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AI for Medical Diagnosis
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    AI for Medical Diagnosis
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="ai-for-medical-diagnosis/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
               
@@ -480,35 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ai-for-medical-diagnosis/week-1/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 1 - Chest X-Ray Diagnosis Pipeline
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="ai-for-medical-diagnosis/week-2/" class="md-nav__link">
+      <a href="../week-2/" class="md-nav__link">
         
   
   
@@ -536,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ai-for-medical-diagnosis/week-3/" class="md-nav__link">
+      <a href="../week-3/" class="md-nav__link">
         
   
   
@@ -623,7 +610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-rag-agentic-ai/" class="md-nav__link">
+      <a href="../../ibm-rag-agentic-ai/" class="md-nav__link">
         
   
   
@@ -651,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-rag-agentic-ai/course-01-develop-generative-ai-applications/" class="md-nav__link">
+      <a href="../../ibm-rag-agentic-ai/course-01-develop-generative-ai-applications/" class="md-nav__link">
         
   
   
@@ -679,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-rag-agentic-ai/course-02-build-rag-applications/" class="md-nav__link">
+      <a href="../../ibm-rag-agentic-ai/course-02-build-rag-applications/" class="md-nav__link">
         
   
   
@@ -707,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-rag-agentic-ai/course-03-vector-databases-for-rag/" class="md-nav__link">
+      <a href="../../ibm-rag-agentic-ai/course-03-vector-databases-for-rag/" class="md-nav__link">
         
   
   
@@ -735,7 +722,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-rag-agentic-ai/course-04-advanced-rag-vector-databases-retrievers/" class="md-nav__link">
+      <a href="../../ibm-rag-agentic-ai/course-04-advanced-rag-vector-databases-retrievers/" class="md-nav__link">
         
   
   
@@ -763,7 +750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-rag-agentic-ai/course-05-multimodal-generative-ai-applications/" class="md-nav__link">
+      <a href="../../ibm-rag-agentic-ai/course-05-multimodal-generative-ai-applications/" class="md-nav__link">
         
   
   
@@ -791,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-rag-agentic-ai/course-06-fundamentals-building-ai-agents/" class="md-nav__link">
+      <a href="../../ibm-rag-agentic-ai/course-06-fundamentals-building-ai-agents/" class="md-nav__link">
         
   
   
@@ -819,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-rag-agentic-ai/course-07-agentic-ai-langchain-langgraph/" class="md-nav__link">
+      <a href="../../ibm-rag-agentic-ai/course-07-agentic-ai-langchain-langgraph/" class="md-nav__link">
         
   
   
@@ -847,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-rag-agentic-ai/course-08-agentic-ai-langgraph-crewai-autogen-beeai/" class="md-nav__link">
+      <a href="../../ibm-rag-agentic-ai/course-08-agentic-ai-langgraph-crewai-autogen-beeai/" class="md-nav__link">
         
   
   
@@ -934,7 +921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-full-stack-software-developer/" class="md-nav__link">
+      <a href="../../ibm-full-stack-software-developer/" class="md-nav__link">
         
   
   
@@ -962,7 +949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-full-stack-software-developer/html-css-js-module-1/" class="md-nav__link">
+      <a href="../../ibm-full-stack-software-developer/html-css-js-module-1/" class="md-nav__link">
         
   
   
@@ -990,7 +977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="ibm-full-stack-software-developer/html-css-js-module-2/" class="md-nav__link">
+      <a href="../../ibm-full-stack-software-developer/html-css-js-module-2/" class="md-nav__link">
         
   
   
@@ -1045,60 +1032,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#course-catalog" class="md-nav__link">
+  <a href="#what-this-covers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Course Catalog
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Course Catalog">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ai-for-medical-diagnosis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AI for Medical Diagnosis
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ibm-rag-agentic-ai" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        IBM RAG &amp; Agentic AI
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ibm-full-stack-software-developer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        IBM Full Stack Software Developer
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#current-coverage-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Current Coverage Summary
+        What This Covers
       
     </span>
   </a>
@@ -1106,10 +1043,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-read-formulas" class="md-nav__link">
+  <a href="#core-ideas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How to Read Formulas
+        Core Ideas
       
     </span>
   </a>
@@ -1117,10 +1054,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-read-code-snippets" class="md-nav__link">
+  <a href="#important-formulas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How to Read Code Snippets
+        Important Formulas
       
     </span>
   </a>
@@ -1128,10 +1065,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#main-concepts-by-track" class="md-nav__link">
+  <a href="#human-readable-explanation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Main Concepts by Track
+        Human-Readable Explanation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-code-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Code Patterns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Takeaways
       
     </span>
   </a>
@@ -1158,52 +1128,108 @@
   
 
 
-<h1 id="coursera-learning-notes">Coursera Learning Notes</h1>
-<p>This site turns the local course materials in this repository into organized study notes. It is written course by course, then week by week or module by module, so that each page can be read as a focused review rather than as a raw notebook export.</p>
-<h2 id="course-catalog">Course Catalog</h2>
-<div class="course-grid">
-<div class="course-card medical">
-<p><span class="course-meta">Medical AI Track</span></p>
-<h3 id="ai-for-medical-diagnosis"><a href="ai-for-medical-diagnosis/">AI for Medical Diagnosis</a></h3>
-<p>Week 1 and Week 2 notes for chest X-ray classification, leakage prevention, weighted loss, DenseNet, and diagnostic model metrics.</p>
-</div>
-<div class="course-card rag">
-<p><span class="course-meta">RAG and Agents Track</span></p>
-<h3 id="ibm-rag-agentic-ai"><a href="ibm-rag-agentic-ai/">IBM RAG &amp; Agentic AI</a></h3>
-<p>Eight-course path covering generative AI apps, RAG, vector databases, multimodal AI, tool use, LangGraph, CrewAI, AutoGen, and BeeAI.</p>
-</div>
-<div class="course-card fullstack">
-<p><span class="course-meta">Web Foundation Track</span></p>
-<h3 id="ibm-full-stack-software-developer"><a href="ibm-full-stack-software-developer/">IBM Full Stack Software Developer</a></h3>
-<p>HTML, CSS, and JavaScript module notes focused on semantic structure, common tags, forms, fieldsets, and legends.</p>
-</div>
-</div>
-<h2 id="current-coverage-summary">Current Coverage Summary</h2>
-<p>The notes summarize notebooks, PDFs, Python scripts, SQL files, and existing markdown that are available locally in the repo. Generated folders, virtual environments, model weights, datasets, and built site artifacts are intentionally not summarized.</p>
-<p>The largest track is IBM RAG &amp; Agentic AI. It progresses from basic generative AI application patterns to retrieval augmented generation, vector search, multimodal systems, tool calling, and multi-agent orchestration. The medical diagnosis track focuses on an end-to-end chest X-ray classification workflow and then evaluates predictions with human-readable diagnostic metrics.</p>
-<h2 id="how-to-read-formulas">How to Read Formulas</h2>
-<p>Every important formula is written in three parts:</p>
-<ol>
-<li>A plain-language sentence that says what the formula measures.</li>
-<li>A displayed equation using readable mathematical notation.</li>
-<li>A short symbol list that defines each term.</li>
-</ol>
-<p>For example, sensitivity means: among cases that are truly positive, how many did the model correctly call positive?</p>
+<h1 id="week-1-chest-x-ray-diagnosis-pipeline">Week 1 - Chest X-Ray Diagnosis Pipeline</h1>
+<p><span class="track-badge medical">AI for Medical Diagnosis</span></p>
+<h2 id="what-this-covers">What This Covers</h2>
+<p>Week 1 covers the first half of the chest X-ray diagnosis workflow: data exploration, image preprocessing, patient overlap, class imbalance, weighted loss, DenseNet121, and transfer learning for multi-label classification.</p>
+<h2 id="core-ideas">Core Ideas</h2>
+<ul>
+<li>Chest X-ray data contains images, patient identifiers, and multiple disease labels.</li>
+<li>Patient overlap is a serious data leakage risk because the model may memorize patient-level features.</li>
+<li>Images need consistent size and normalization before entering a neural network.</li>
+<li>Medical labels are imbalanced, so rare positive cases need enough loss signal.</li>
+<li>DenseNet121 is used as a feature extractor, and a sigmoid output layer produces independent disease probabilities.</li>
+</ul>
+<h2 id="important-formulas">Important Formulas</h2>
+<p>Standardization means subtracting the mean and dividing by the standard deviation so pixel values are on a comparable scale.</p>
 <div class="arithmatex">\[
-\text{Sensitivity} = \frac{TP}{TP + FN}
+x_{\text{standardized}} = \frac{x - \mu}{\sigma}
 \]</div>
 <p>Where:</p>
 <ul>
-<li><span class="arithmatex">\(TP\)</span> means true positives.</li>
-<li><span class="arithmatex">\(FN\)</span> means false negatives.</li>
-<li><span class="arithmatex">\(TP + FN\)</span> means all actually positive cases.</li>
+<li><span class="arithmatex">\(x\)</span> is the original pixel value.</li>
+<li><span class="arithmatex">\(\mu\)</span> is the mean pixel value.</li>
+<li><span class="arithmatex">\(\sigma\)</span> is the standard deviation.</li>
+<li><span class="arithmatex">\(x_{\text{standardized}}\)</span> is the normalized pixel value.</li>
 </ul>
-<h2 id="how-to-read-code-snippets">How to Read Code Snippets</h2>
-<p>Code snippets are short patterns, not complete lab copies. They show the shape of the solution, the important API calls, and the reasoning behind the implementation. Use the original notebooks and scripts in the repository when you need complete runnable examples.</p>
-<h2 id="main-concepts-by-track">Main Concepts by Track</h2>
-<p>AI for Medical Diagnosis emphasizes data discipline. The key ideas are avoiding patient overlap, using training statistics correctly, handling class imbalance, building a multi-label classifier, and reading medical metrics without confusing accuracy with clinical usefulness.</p>
-<p>IBM RAG &amp; Agentic AI emphasizes system design. The key ideas are connecting LLMs to external data, retrieving relevant context, indexing embeddings, using tools and function calls, adding orchestration, and splitting complex workflows across specialized agents.</p>
-<p>IBM Full Stack Software Developer introduces the browser foundation. The key ideas are using semantic HTML, structuring pages clearly, and choosing form elements that communicate meaning to users and assistive technology.</p>
+<p>Positive class frequency means the fraction of training examples where a disease is present.</p>
+<div class="arithmatex">\[
+f_{\text{pos}} = \frac{\text{number of positive examples}}{N}
+\]</div>
+<p>Negative class frequency means the fraction of training examples where a disease is absent.</p>
+<div class="arithmatex">\[
+f_{\text{neg}} = \frac{\text{number of negative examples}}{N}
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(N\)</span> is the total number of training examples.</li>
+<li><span class="arithmatex">\(f_{\text{pos}}\)</span> is the positive frequency.</li>
+<li><span class="arithmatex">\(f_{\text{neg}}\)</span> is the negative frequency.</li>
+</ul>
+<p>The class weights use the opposite class frequency so that the minority side gets more influence.</p>
+<div class="arithmatex">\[
+w_{\text{pos}} = f_{\text{neg}}
+\]</div>
+<div class="arithmatex">\[
+w_{\text{neg}} = f_{\text{pos}}
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(w_{\text{pos}}\)</span> is the weight applied when the true label is positive.</li>
+<li><span class="arithmatex">\(w_{\text{neg}}\)</span> is the weight applied when the true label is negative.</li>
+</ul>
+<p>Weighted binary cross-entropy means positive and negative errors are scaled by their class weights.</p>
+<div class="arithmatex">\[
+L = -w_{\text{pos}} y \log(\hat{y} + \epsilon) - w_{\text{neg}}(1-y)\log(1-\hat{y}+\epsilon)
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(L\)</span> is the weighted loss for one label.</li>
+<li><span class="arithmatex">\(y\)</span> is the true label, either 0 or 1.</li>
+<li><span class="arithmatex">\(\hat{y}\)</span> is the model's predicted probability.</li>
+<li><span class="arithmatex">\(\epsilon\)</span> is a tiny number added to avoid taking <span class="arithmatex">\(\log(0)\)</span>.</li>
+</ul>
+<h2 id="human-readable-explanation">Human-Readable Explanation</h2>
+<p>The workflow begins with simple but important questions: how many examples exist for each disease, how many positive labels are available, and whether the split accidentally includes the same patient in multiple groups. These checks matter because medical models are often evaluated on rare events, and leakage can hide weak generalization.</p>
+<p>The preprocessing step uses image generators to resize and normalize images. Training images can be transformed and normalized during training, but validation and test examples should be processed consistently using training-derived statistics. This simulates real inference more honestly.</p>
+<p>The weighted loss addresses imbalance. If a disease is rare, a model can look good by predicting "not present" most of the time. Weighted loss makes mistakes on the rare side more expensive, giving the model a reason to learn those findings.</p>
+<p>DenseNet121 provides a pretrained visual backbone. The course uses transfer learning by attaching a global average pooling layer and a sigmoid classifier head. Sigmoid is used because the task is multi-label: each disease is predicted independently.</p>
+<h2 id="key-code-patterns">Key Code Patterns</h2>
+<p>Compute class frequencies:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">compute_class_freqs</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">pos_freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="n">neg_freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+    <span class="k">return</span> <span class="n">pos_freqs</span><span class="p">,</span> <span class="n">neg_freqs</span>
+</code></pre></div>
+<p>Build a weighted loss closure:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_weighted_loss</span><span class="p">(</span><span class="n">pos_weights</span><span class="p">,</span> <span class="n">neg_weights</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">weighted_loss</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pos_weights</span><span class="p">)):</span>
+            <span class="n">loss</span> <span class="o">+=</span> <span class="o">-</span><span class="n">K</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span>
+                <span class="n">pos_weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">y_true</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">K</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y_pred</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">)</span>
+                <span class="o">+</span> <span class="n">neg_weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y_true</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="n">K</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">loss</span>
+    <span class="k">return</span> <span class="n">weighted_loss</span>
+</code></pre></div>
+<p>Attach a classification head to DenseNet:</p>
+<div class="highlight"><pre><span></span><code><span class="n">base_model</span> <span class="o">=</span> <span class="n">DenseNet121</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="s2">&quot;./models/nih/densenet.hdf5&quot;</span><span class="p">,</span> <span class="n">include_top</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">GlobalAveragePooling2D</span><span class="p">()(</span><span class="n">base_model</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">base_model</span><span class="o">.</span><span class="n">input</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">predictions</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="common-mistakes">Common Mistakes</h2>
+<ul>
+<li>Using image-level splits instead of patient-level splits.</li>
+<li>Computing validation preprocessing statistics from validation examples.</li>
+<li>Using softmax for multi-label classification when diseases are not mutually exclusive.</li>
+<li>Forgetting the epsilon term in the logarithm.</li>
+<li>Assuming class weights fix all imbalance problems without checking evaluation metrics.</li>
+</ul>
+<h2 id="takeaways">Takeaways</h2>
+<p>Week 1 builds the model foundation. A trustworthy medical imaging model depends as much on data hygiene and loss design as on the neural network architecture.</p>
 
 
 
@@ -1259,12 +1285,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["search.suggest", "search.highlight", "navigation.sections", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["search.suggest", "search.highlight", "navigation.sections", "navigation.top"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
