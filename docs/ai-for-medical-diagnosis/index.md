@@ -63,7 +63,7 @@ The pipeline starts by asking whether the data split is trustworthy. If the same
 
 Evaluation then asks a different question: if the model produces probabilities, what happens when those probabilities are turned into decisions? A high threshold reduces false positives but can miss real disease. A low threshold catches more disease but can create more false alarms. The Week 2 metrics explain these tradeoffs.
 
-Week 3 changes the output type. Instead of predicting whether an image has a disease label, the model predicts where tumor tissue appears in a 3D MRI. That requires patch extraction, 3D convolutions, and overlap-based metrics. The A3 pretrained 3D U-Net weights are available at [this Hugging Face link](https://huggingface.co/WWWIIITTT/UNet-3D/resolve/main/model_pretrained.hdf5).
+Week 3 changes the output type. Instead of predicting whether an image has a disease label, the model predicts where tumor tissue appears in a 3D MRI. That requires patch extraction, 3D convolutions, and overlap-based metrics. The A3 pretrained 3D U-Net weights are available at [this Hugging Face link](https://huggingface.co/WWWIIITTT/UNet-3D/blob/main/model_pretrained.hdf5).
 
 ## Key Code Patterns
 

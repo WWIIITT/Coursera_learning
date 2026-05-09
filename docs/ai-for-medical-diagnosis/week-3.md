@@ -8,7 +8,7 @@ Week 3 moves from image-level classification to voxel-level segmentation. The as
 
 The pretrained A3 model weights can be downloaded from:
 
-[https://huggingface.co/WWWIIITTT/UNet-3D/resolve/main/model_pretrained.hdf5](https://huggingface.co/WWWIIITTT/UNet-3D/resolve/main/model_pretrained.hdf5)
+[https://huggingface.co/WWWIIITTT/UNet-3D/blob/main/model_pretrained.hdf5](https://huggingface.co/WWWIIITTT/UNet-3D/blob/main/model_pretrained.hdf5)
 
 ## Core Ideas
 
@@ -278,7 +278,7 @@ model.load_weights("model_pretrained.hdf5")
 The same file is available here:
 
 ```text
-https://huggingface.co/WWWIIITTT/UNet-3D/resolve/main/model_pretrained.hdf5
+https://huggingface.co/WWWIIITTT/UNet-3D/blob/main/model_pretrained.hdf5
 ```
 
 Generate batches from preprocessed `.h5` patches:

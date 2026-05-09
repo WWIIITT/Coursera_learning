@@ -1177,7 +1177,7 @@
 <h2 id="what-this-covers">What This Covers</h2>
 <p>Week 3 moves from image-level classification to voxel-level segmentation. The assignment uses MRI volumes from the BraTS-style brain tumor dataset, extracts smaller 3D sub-volumes, standardizes each MRI channel, trains a 3D U-Net, and evaluates segmentation quality with Dice-based metrics plus class-specific sensitivity and specificity.</p>
 <p>The pretrained A3 model weights can be downloaded from:</p>
-<p><a href="https://huggingface.co/WWWIIITTT/UNet-3D/resolve/main/model_pretrained.hdf5">https://huggingface.co/WWWIIITTT/UNet-3D/resolve/main/model_pretrained.hdf5</a></p>
+<p><a href="https://huggingface.co/WWWIIITTT/UNet-3D/blob/main/model_pretrained.hdf5">https://huggingface.co/WWWIIITTT/UNet-3D/blob/main/model_pretrained.hdf5</a></p>
 <h2 id="core-ideas">Core Ideas</h2>
 <ul>
 <li>MRI examples are 3D volumes, not flat 2D images.</li>
@@ -1381,7 +1381,7 @@ x_{\text{standardized}} = \frac{x - \mu_{c,z}}{\sigma_{c,z}}
 <div class="highlight"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="s2">&quot;model_pretrained.hdf5&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>The same file is available here:</p>
-<div class="highlight"><pre><span></span><code>https://huggingface.co/WWWIIITTT/UNet-3D/resolve/main/model_pretrained.hdf5
+<div class="highlight"><pre><span></span><code>https://huggingface.co/WWWIIITTT/UNet-3D/blob/main/model_pretrained.hdf5
 </code></pre></div>
 <p>Generate batches from preprocessed <code>.h5</code> patches:</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">VolumeDataGenerator</span><span class="p">(</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">Sequence</span><span class="p">):</span>
