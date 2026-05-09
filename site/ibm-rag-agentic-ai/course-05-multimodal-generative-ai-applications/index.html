@@ -741,6 +741,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1087,6 +1098,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1177,6 +1199,25 @@
 <div class="highlight"><pre><span></span><code><span class="n">demo</span> <span class="o">=</span> <span class="n">gr</span><span class="o">.</span><span class="n">Interface</span><span class="p">(</span><span class="n">fn</span><span class="o">=</span><span class="n">analyze_audio</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="n">gr</span><span class="o">.</span><span class="n">Audio</span><span class="p">(),</span> <span class="n">outputs</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
 <span class="n">demo</span><span class="o">.</span><span class="n">launch</span><span class="p">()</span>
 </code></pre></div>
+<h2 id="detailed-study-notes">Detailed Study Notes</h2>
+<p>Multimodal applications usually convert media into a representation the next step can use. Audio is commonly converted into text by speech-to-text. Images may be converted into captions, embeddings, object labels, or structured observations. Text-to-speech does the opposite: it turns generated text into an audio file for playback.</p>
+<p>A meeting assistant pipeline has a clear sequence:</p>
+<div class="highlight"><pre><span></span><code><span class="n">audio_path</span> <span class="o">=</span> <span class="n">download_or_upload_audio</span><span class="p">()</span>
+<span class="n">transcript</span> <span class="o">=</span> <span class="n">speech_to_text</span><span class="p">(</span><span class="n">audio_path</span><span class="p">)</span>
+<span class="n">summary</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Summarize this transcript:</span><span class="se">\n</span><span class="si">{</span><span class="n">transcript</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">action_items</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Extract action items:</span><span class="se">\n</span><span class="si">{</span><span class="n">transcript</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>An image-grounded app should separate perception from decision-making:</p>
+<div class="highlight"><pre><span></span><code><span class="n">image_summary</span> <span class="o">=</span> <span class="n">vision_model</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="n">structured_data</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;Convert this image description into JSON fields:</span><span class="se">\n</span><span class="si">{</span><span class="n">image_summary</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+<span class="n">recommendation</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;Use these fields to produce the user-facing recommendation:</span><span class="se">\n</span><span class="si">{</span><span class="n">structured_data</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Multimodal retrieval works by embedding different media into comparable vectors. A style finder can embed a reference image and compare it to product image embeddings. A text query can also be embedded and matched to visual or textual item descriptions, depending on the model used.</p>
+<p>The practical risks are format and size. Media files need validation, temporary storage, predictable cleanup, and clear limits. A demo that works for one local file may fail for uploaded files, large videos, unsupported image formats, or long audio that exceeds the transcription model's limits.</p>
 <h2 id="common-mistakes">Common Mistakes</h2>
 <ul>
 <li>Sending raw media to a text-only model.</li>

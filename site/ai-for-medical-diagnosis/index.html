@@ -430,6 +430,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1087,6 +1098,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1193,6 +1215,21 @@
 <p>Load the Week 3 pretrained 3D U-Net weights:</p>
 <div class="highlight"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="s2">&quot;model_pretrained.hdf5&quot;</span><span class="p">)</span>
 </code></pre></div>
+<h2 id="detailed-study-notes">Detailed Study Notes</h2>
+<p>The course can be read as three related medical imaging workflows. Week 1 builds a multi-label chest X-ray classifier. Week 2 asks how to evaluate a diagnostic model once it produces probabilities. Week 3 changes the output from image-level labels to voxel-level segmentation masks.</p>
+<p>The same discipline appears in all weeks:</p>
+<div class="highlight"><pre><span></span><code>clean split -&gt; preprocessing -&gt; model output -&gt; task-specific metrics -&gt; clinical interpretation
+</code></pre></div>
+<p>For classification, the output is a vector of disease probabilities:</p>
+<div class="highlight"><pre><span></span><code><span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_batch</span><span class="p">)</span>
+<span class="n">binary_pred</span> <span class="o">=</span> <span class="n">pred</span> <span class="o">&gt;=</span> <span class="n">threshold</span>
+</code></pre></div>
+<p>For segmentation, the output is a stack of spatial masks:</p>
+<div class="highlight"><pre><span></span><code><span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">volume_patch</span><span class="p">)</span>
+<span class="n">binary_mask</span> <span class="o">=</span> <span class="n">pred</span> <span class="o">&gt;=</span> <span class="n">threshold</span>
+</code></pre></div>
+<p>The evaluation question changes with the output. For chest X-ray classification, the key question is whether each disease label is detected at the chosen threshold. For MRI segmentation, the key question is whether the predicted tumor mask overlaps the true tumor mask and whether each tumor class is detected voxel by voxel.</p>
+<p>The practical lesson is that medical AI quality is not one number. Leakage, imbalance, threshold choice, calibration, and mask overlap each measure a different risk.</p>
 <h2 id="common-mistakes">Common Mistakes</h2>
 <ul>
 <li>Evaluating a split that has patient overlap.</li>

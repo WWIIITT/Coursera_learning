@@ -60,6 +60,46 @@ def index():
     return render_template("index.html", response=response)
 ```
 
+## Detailed Study Notes
+
+A generative AI application usually has four layers: configuration, prompt construction, model invocation, and presentation. Configuration stores model identifiers, decoding settings, credentials, and deployment options. Prompt construction turns user input into a stable instruction format. Model invocation sends the prompt to the selected model and receives text or structured output. Presentation wraps the result in a notebook, CLI, Flask route, or frontend.
+
+In-context learning is most useful when the task has a repeatable pattern but you do not want to train a model. A few examples inside the prompt show the model the expected style, reasoning pattern, or output schema. The examples should be close to the real task, but not so many that they waste context window or distract from the current user input.
+
+Prompt templates help avoid string sprawl:
+
+```python
+template = PromptTemplate.from_template(
+    """You are helping with a course lab.
+
+Task: {task}
+Input: {user_input}
+
+Return:
+- short explanation
+- final answer
+"""
+)
+
+prompt_value = template.format(task="summarize", user_input=notes)
+```
+
+A maintainable Flask app keeps route logic thin:
+
+```python
+def generate_answer(question):
+    prompt = prompt_template.format(question=question)
+    return model.invoke(prompt)
+
+@app.route("/ask", methods=["POST"])
+def ask():
+    question = request.form["question"]
+    answer = generate_answer(question)
+    return render_template("index.html", answer=answer)
+```
+
+Model selection should be tested with real examples. A small model may be enough for routing, classification, rewriting, or short extraction. A stronger model is usually justified when the task needs long-context synthesis, careful reasoning, strict instruction following, or high-quality writing.
+
 ## Common Mistakes
 
 - Hard-coding model settings throughout the app instead of keeping them in configuration.

@@ -121,6 +121,29 @@ predictions = Dense(len(labels), activation="sigmoid")(x)
 model = Model(inputs=base_model.input, outputs=predictions)
 ```
 
+## Detailed Study Notes
+
+A chest X-ray diagnosis model starts with data hygiene. The same patient can have multiple images, so a random image-level split can leak patient-specific information into validation or test data. Patient-level overlap checks should happen before model training.
+
+The label matrix is multi-label:
+
+```python
+labels = train_df[disease_names].values
+```
+
+Each row belongs to one image, and each column belongs to one disease. A row may contain several `1` values because diseases are not mutually exclusive. That is why the final layer uses `sigmoid` instead of `softmax`.
+
+Weighted loss changes how mistakes contribute to training:
+
+```python
+positive_loss = pos_weights[i] * y_true[:, i] * K.log(y_pred[:, i] + epsilon)
+negative_loss = neg_weights[i] * (1 - y_true[:, i]) * K.log(1 - y_pred[:, i] + epsilon)
+```
+
+If positive examples are rare, the positive class receives more relative signal. This does not guarantee good sensitivity, but it prevents the loss from being dominated by common negative labels.
+
+Transfer learning uses DenseNet as a visual feature extractor. The pretrained convolutional layers provide general image features, while the new classifier head learns the course-specific disease labels. The model should still be evaluated carefully because medical image distributions differ from ordinary natural images.
+
 ## Common Mistakes
 
 - Using image-level splits instead of patient-level splits.

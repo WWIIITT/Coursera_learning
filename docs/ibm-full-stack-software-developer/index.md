@@ -54,6 +54,40 @@ Basic page structure:
 </html>
 ```
 
+## Detailed Study Notes
+
+HTML, CSS, and JavaScript are separate layers. HTML describes meaning and structure. CSS describes appearance. JavaScript describes behavior. Keeping those responsibilities separate makes pages easier to maintain because changing the color of a button should not require rewriting the form markup, and validating a form should not require changing the page hierarchy.
+
+Semantic HTML gives names to regions of the page:
+
+```html
+<header>Introductory content</header>
+<nav>Navigation links</nav>
+<main>Primary page content</main>
+<aside>Related supporting content</aside>
+<footer>Closing page information</footer>
+```
+
+Forms should connect labels to inputs. This improves click targets, screen reader output, and general clarity:
+
+```html
+<label for="email">Email address</label>
+<input id="email" name="email" type="email" required>
+```
+
+CSS and JavaScript can then target meaningful elements without destroying structure:
+
+```css
+main {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+```
+
+```javascript
+document.querySelector("form").addEventListener("submit", handleSubmit);
+```
+
 ## Common Mistakes
 
 - Choosing tags only for appearance instead of meaning.

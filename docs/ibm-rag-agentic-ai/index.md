@@ -69,6 +69,35 @@ agent = create_agent(llm=llm, tools=tools)
 response = agent.invoke({"input": user_request})
 ```
 
+## Detailed Study Notes
+
+The track can be read as a progression from single model calls to full systems. Course 1 focuses on prompts and app scaffolding. Course 2 adds external context through RAG. Course 3 explains the vector database layer. Course 4 improves retrieval quality. Course 5 adds non-text media. Courses 6-8 add tools, state, agents, and multi-agent coordination.
+
+The repeated architecture is:
+
+```text
+user input -> preprocessing -> retrieval/tool use -> model call -> validation -> response
+```
+
+Each stage has a different failure mode. Preprocessing can lose important information. Retrieval can return irrelevant context. Tools can fail or produce unsafe side effects. The model can ignore instructions or overgeneralize. Validation catches some of those errors before the user sees the answer.
+
+For RAG systems, evaluate both retrieval and generation:
+
+```python
+docs = retriever.invoke(question)
+retrieval_ok = any(expected_phrase in doc.page_content for doc in docs)
+answer = chain.invoke({"question": question, "context": docs})
+```
+
+For agent systems, inspect the trace:
+
+```python
+result = agent_executor.invoke({"input": request})
+print(result["intermediate_steps"])
+```
+
+A strong implementation habit is to make each boundary observable: log prompts, retrieved chunks, tool arguments, tool outputs, final answers, and validation results. This makes the system debuggable when the final response is wrong.
+
 ## Common Mistakes
 
 - Passing too much context instead of retrieving the most relevant chunks.

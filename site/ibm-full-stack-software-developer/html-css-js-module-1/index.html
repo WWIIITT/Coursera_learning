@@ -940,6 +940,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1087,6 +1098,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1163,11 +1185,40 @@
 <p>Add an image with alternative text:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;xray-example.png&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Example chest X-ray&quot;</span><span class="p">&gt;</span>
 </code></pre></div>
+<h2 id="detailed-study-notes">Detailed Study Notes</h2>
+<p>HTML elements form a tree. The <code>html</code> element contains <code>head</code> and <code>body</code>. The <code>head</code> stores metadata such as page title and character encoding. The <code>body</code> stores visible content. Inside the body, headings, paragraphs, links, lists, and images describe the content users interact with.</p>
+<p>A complete starter page:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!doctype html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>My First HTML Page<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>My First HTML Page<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This page uses headings, paragraphs, links, and images.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Lists should match the meaning of the content. Use an ordered list when sequence matters and an unordered list when it does not:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Open the lab.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Edit the HTML.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Run the preview.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>HTML<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>CSS<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>JavaScript<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Links should describe their destination. "Read the HTML documentation" is clearer than "click here", especially for screen reader users who navigate link by link.</p>
 <h2 id="common-mistakes">Common Mistakes</h2>
 <ul>
 <li>Leaving out <code>alt</code> text for meaningful images.</li>
 <li>Using heading levels out of order only for visual size.</li>
-<li>Forgeting that links need meaningful text.</li>
+<li>Forgetting that links need meaningful text.</li>
 <li>Writing unclosed or incorrectly nested tags.</li>
 </ul>
 <h2 id="takeaways">Takeaways</h2>

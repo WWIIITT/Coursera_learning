@@ -75,6 +75,46 @@ class SearchInput(BaseModel):
     max_results: int = 5
 ```
 
+## Detailed Study Notes
+
+LangGraph makes state explicit. A graph state is the shared record that moves through the workflow. Each node reads part of the state and returns updates. This is different from a hidden agent loop because the workflow structure is visible in code.
+
+Example state design:
+
+```python
+class GraphState(TypedDict):
+    question: str
+    documents: list
+    answer: str
+    needs_retry: bool
+```
+
+Each node should do one job:
+
+```python
+def retrieve(state):
+    docs = retriever.invoke(state["question"])
+    return {"documents": docs}
+
+def answer(state):
+    context = "\n\n".join(doc.page_content for doc in state["documents"])
+    response = llm.invoke(f"Context:\n{context}\n\nQuestion: {state['question']}")
+    return {"answer": response}
+```
+
+Conditional edges turn validation into control flow:
+
+```python
+def route_after_check(state):
+    if state["needs_retry"]:
+        return "retrieve"
+    return "final"
+
+workflow.add_conditional_edges("check_answer", route_after_check)
+```
+
+Multi-agent RAG benefits from role separation when each role has a measurable purpose: retrieval gets evidence, relevance checking removes weak evidence, research writes the answer, and verification checks whether the answer is supported. If two agents have the same job, they usually add latency without adding reliability.
+
 ## Common Mistakes
 
 - Storing important workflow data outside the graph state.

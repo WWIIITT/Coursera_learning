@@ -79,6 +79,40 @@ class NutritionPlan(BaseModel):
     cautions: list[str]
 ```
 
+## Detailed Study Notes
+
+Agent orchestration frameworks differ mostly in how they express roles, state, and communication. LangGraph emphasizes explicit workflow graphs. CrewAI emphasizes role-based task execution. AutoGen emphasizes agent conversation. BeeAI provides another framework for coordinating agentic components and tools.
+
+CrewAI is useful when work can be described as tasks assigned to roles:
+
+```python
+planner = Agent(
+    role="Meal Planner",
+    goal="Create meals that satisfy user constraints",
+    backstory="Specializes in practical weekly meal planning",
+)
+
+shopping_task = Task(
+    description="Create a grocery list from the approved meal plan",
+    expected_output="Categorized grocery list",
+    agent=planner,
+)
+```
+
+AutoGen-style systems need conversation controls. Without a maximum round count, speaker policy, or termination condition, agents can repeat themselves or keep refining without producing a final result.
+
+```python
+groupchat = GroupChat(
+    agents=[planner, reviewer, writer],
+    max_round=6,
+    speaker_selection_method="round_robin",
+)
+```
+
+The safest multi-agent pattern is pipeline-like: one agent produces an artifact, another checks it, and a final step formats it. The riskiest pattern is an open-ended discussion with overlapping roles and no acceptance criteria.
+
+For healthcare and nutrition examples, the app should clearly separate educational output from professional advice. Structured output is helpful because downstream UI code can display meals, grocery items, cautions, and assumptions in predictable sections.
+
 ## Common Mistakes
 
 - Adding agents when one well-designed workflow would be simpler.

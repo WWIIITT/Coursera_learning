@@ -88,6 +88,34 @@ Load the Week 3 pretrained 3D U-Net weights:
 model.load_weights("model_pretrained.hdf5")
 ```
 
+## Detailed Study Notes
+
+The course can be read as three related medical imaging workflows. Week 1 builds a multi-label chest X-ray classifier. Week 2 asks how to evaluate a diagnostic model once it produces probabilities. Week 3 changes the output from image-level labels to voxel-level segmentation masks.
+
+The same discipline appears in all weeks:
+
+```text
+clean split -> preprocessing -> model output -> task-specific metrics -> clinical interpretation
+```
+
+For classification, the output is a vector of disease probabilities:
+
+```python
+pred = model.predict(image_batch)
+binary_pred = pred >= threshold
+```
+
+For segmentation, the output is a stack of spatial masks:
+
+```python
+pred = model.predict(volume_patch)
+binary_mask = pred >= threshold
+```
+
+The evaluation question changes with the output. For chest X-ray classification, the key question is whether each disease label is detected at the chosen threshold. For MRI segmentation, the key question is whether the predicted tumor mask overlaps the true tumor mask and whether each tumor class is detected voxel by voxel.
+
+The practical lesson is that medical AI quality is not one number. Leakage, imbalance, threshold choice, calibration, and mask overlap each measure a different risk.
+
 ## Common Mistakes
 
 - Evaluating a split that has patient overlap.

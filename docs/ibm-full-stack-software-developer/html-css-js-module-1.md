@@ -50,11 +50,49 @@ Add an image with alternative text:
 <img src="xray-example.png" alt="Example chest X-ray">
 ```
 
+## Detailed Study Notes
+
+HTML elements form a tree. The `html` element contains `head` and `body`. The `head` stores metadata such as page title and character encoding. The `body` stores visible content. Inside the body, headings, paragraphs, links, lists, and images describe the content users interact with.
+
+A complete starter page:
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My First HTML Page</title>
+  </head>
+  <body>
+    <h1>My First HTML Page</h1>
+    <p>This page uses headings, paragraphs, links, and images.</p>
+  </body>
+</html>
+```
+
+Lists should match the meaning of the content. Use an ordered list when sequence matters and an unordered list when it does not:
+
+```html
+<ol>
+  <li>Open the lab.</li>
+  <li>Edit the HTML.</li>
+  <li>Run the preview.</li>
+</ol>
+
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+</ul>
+```
+
+Links should describe their destination. "Read the HTML documentation" is clearer than "click here", especially for screen reader users who navigate link by link.
+
 ## Common Mistakes
 
 - Leaving out `alt` text for meaningful images.
 - Using heading levels out of order only for visual size.
-- Forgeting that links need meaningful text.
+- Forgetting that links need meaningful text.
 - Writing unclosed or incorrectly nested tags.
 
 ## Takeaways

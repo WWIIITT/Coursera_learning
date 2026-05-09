@@ -966,6 +966,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1085,6 +1096,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1185,6 +1207,43 @@
   <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
 </code></pre></div>
+<h2 id="detailed-study-notes">Detailed Study Notes</h2>
+<p>Semantic layout tags do not automatically style a page in a dramatic way. Their main value is meaning. A <code>main</code> element tells browsers and assistive technologies where the unique content starts. A <code>nav</code> element identifies navigation. An <code>article</code> can stand alone, while a <code>section</code> groups related content inside a larger page.</p>
+<p>Use this pattern for page-level structure:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Course Catalog<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">nav</span> <span class="na">aria-label</span><span class="o">=</span><span class="s">&quot;Primary&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/&quot;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/courses&quot;</span><span class="p">&gt;</span>Courses<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>HTML Basics<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>HTML gives the page structure.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Use <code>fieldset</code> when controls share one question or category:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">legend</span><span class="p">&gt;</span>Choose your course interests<span class="p">&lt;/</span><span class="nt">legend</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;interest&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;ai&quot;</span><span class="p">&gt;</span>
+    AI
+  <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">label</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;interest&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;web&quot;</span><span class="p">&gt;</span>
+    Web development
+  <span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">fieldset</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Radio buttons with the same <code>name</code> create one mutually exclusive group. Checkboxes with the same <code>name</code> allow multiple selections. A <code>select</code> is useful when there are many choices and showing all options would take too much space.</p>
 <h2 id="common-mistakes">Common Mistakes</h2>
 <ul>
 <li>Using <code>section</code> without a heading.</li>

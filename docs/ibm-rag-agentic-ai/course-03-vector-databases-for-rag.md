@@ -69,6 +69,40 @@ Limit and filter retrieved results:
 filtered = [item for item in results if item["calories"] <= max_calories]
 ```
 
+## Detailed Study Notes
+
+Embeddings are coordinates for meaning. The model maps text, records, or images into vectors so that related items tend to be close. The vector database stores those embeddings together with IDs, original content, and metadata. Retrieval then compares the query embedding to stored embeddings and returns nearest neighbors.
+
+Metadata is as important as the vector. A user query such as "low calorie vegetarian dinner" has both semantic intent and structured constraints. Vector similarity can find food-like matches, while metadata filters can enforce calories, cuisine, dietary category, or availability.
+
+Typical Chroma workflow:
+
+```python
+client = chromadb.Client()
+collection = client.create_collection("course_notes")
+
+collection.add(
+    ids=["doc-1", "doc-2"],
+    documents=["RAG retrieves context.", "Agents can call tools."],
+    metadatas=[
+        {"course": "rag", "type": "concept"},
+        {"course": "agents", "type": "concept"},
+    ],
+)
+```
+
+Query with metadata constraints:
+
+```python
+results = collection.query(
+    query_texts=["how do agents use tools?"],
+    n_results=3,
+    where={"course": "agents"},
+)
+```
+
+Recommendation systems use the same mechanics. The query may be a user preference profile, and the returned records are items with similar embeddings. A robust recommender usually combines vector search with deterministic filters and result limits so the response is relevant, allowed, and not too broad.
+
 ## Common Mistakes
 
 - Comparing raw vectors without normalizing when the metric expects normalized vectors.

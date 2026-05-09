@@ -629,6 +629,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1087,6 +1098,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1170,6 +1192,36 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">)</span>
 </code></pre></div>
+<h2 id="detailed-study-notes">Detailed Study Notes</h2>
+<p>A generative AI application usually has four layers: configuration, prompt construction, model invocation, and presentation. Configuration stores model identifiers, decoding settings, credentials, and deployment options. Prompt construction turns user input into a stable instruction format. Model invocation sends the prompt to the selected model and receives text or structured output. Presentation wraps the result in a notebook, CLI, Flask route, or frontend.</p>
+<p>In-context learning is most useful when the task has a repeatable pattern but you do not want to train a model. A few examples inside the prompt show the model the expected style, reasoning pattern, or output schema. The examples should be close to the real task, but not so many that they waste context window or distract from the current user input.</p>
+<p>Prompt templates help avoid string sprawl:</p>
+<div class="highlight"><pre><span></span><code><span class="n">template</span> <span class="o">=</span> <span class="n">PromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;You are helping with a course lab.</span>
+
+<span class="sd">Task: {task}</span>
+<span class="sd">Input: {user_input}</span>
+
+<span class="sd">Return:</span>
+<span class="sd">- short explanation</span>
+<span class="sd">- final answer</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+
+<span class="n">prompt_value</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="s2">&quot;summarize&quot;</span><span class="p">,</span> <span class="n">user_input</span><span class="o">=</span><span class="n">notes</span><span class="p">)</span>
+</code></pre></div>
+<p>A maintainable Flask app keeps route logic thin:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generate_answer</span><span class="p">(</span><span class="n">question</span><span class="p">):</span>
+    <span class="n">prompt</span> <span class="o">=</span> <span class="n">prompt_template</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="n">question</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/ask&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ask</span><span class="p">():</span>
+    <span class="n">question</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s2">&quot;question&quot;</span><span class="p">]</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">generate_answer</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="n">answer</span><span class="o">=</span><span class="n">answer</span><span class="p">)</span>
+</code></pre></div>
+<p>Model selection should be tested with real examples. A small model may be enough for routing, classification, rewriting, or short extraction. A stronger model is usually justified when the task needs long-context synthesis, careful reasoning, strict instruction following, or high-quality writing.</p>
 <h2 id="common-mistakes">Common Mistakes</h2>
 <ul>
 <li>Hard-coding model settings throughout the app instead of keeping them in configuration.</li>

@@ -132,6 +132,35 @@ npv = TN / (TN + FN)
 
 Bootstrap confidence intervals by repeatedly sampling positives and negatives, computing a statistic each time, and taking percentiles of the bootstrap distribution.
 
+## Detailed Study Notes
+
+A model score becomes a diagnostic decision only after choosing a threshold. The same probability outputs can produce very different clinical behavior depending on that threshold.
+
+Threshold sweep pattern:
+
+```python
+thresholds = np.linspace(0, 1, 101)
+rows = []
+
+for th in thresholds:
+    thresholded = pred >= th
+    tp = np.sum((y == 1) & (thresholded == 1))
+    fp = np.sum((y == 0) & (thresholded == 1))
+    tn = np.sum((y == 0) & (thresholded == 0))
+    fn = np.sum((y == 1) & (thresholded == 0))
+    rows.append({
+        "threshold": th,
+        "sensitivity": tp / (tp + fn),
+        "specificity": tn / (tn + fp),
+    })
+```
+
+Sensitivity and specificity are conditioned on the true disease state. PPV and NPV are conditioned on the model prediction. This distinction matters because PPV and NPV shift with prevalence. A positive prediction from the same model can be more trustworthy in a high-prevalence population than in a low-prevalence screening population.
+
+ROC curves summarize ranking behavior across thresholds, but they do not choose the threshold for deployment. Precision-recall curves are often more revealing for rare diseases because false positives can dominate the positive prediction set.
+
+Calibration answers a different question: when the model predicts 0.7, does the disease occur about 70 percent of the time among similar predictions? A well-ranked model can still be poorly calibrated.
+
 ## Common Mistakes
 
 - Treating AUC as proof that the chosen threshold is clinically acceptable.

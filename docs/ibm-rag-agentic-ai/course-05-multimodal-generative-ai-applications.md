@@ -69,6 +69,35 @@ demo = gr.Interface(fn=analyze_audio, inputs=gr.Audio(), outputs="text")
 demo.launch()
 ```
 
+## Detailed Study Notes
+
+Multimodal applications usually convert media into a representation the next step can use. Audio is commonly converted into text by speech-to-text. Images may be converted into captions, embeddings, object labels, or structured observations. Text-to-speech does the opposite: it turns generated text into an audio file for playback.
+
+A meeting assistant pipeline has a clear sequence:
+
+```python
+audio_path = download_or_upload_audio()
+transcript = speech_to_text(audio_path)
+summary = llm.invoke(f"Summarize this transcript:\n{transcript}")
+action_items = llm.invoke(f"Extract action items:\n{transcript}")
+```
+
+An image-grounded app should separate perception from decision-making:
+
+```python
+image_summary = vision_model.describe(image)
+structured_data = llm.invoke(
+    f"Convert this image description into JSON fields:\n{image_summary}"
+)
+recommendation = llm.invoke(
+    f"Use these fields to produce the user-facing recommendation:\n{structured_data}"
+)
+```
+
+Multimodal retrieval works by embedding different media into comparable vectors. A style finder can embed a reference image and compare it to product image embeddings. A text query can also be embedded and matched to visual or textual item descriptions, depending on the model used.
+
+The practical risks are format and size. Media files need validation, temporary storage, predictable cleanup, and clear limits. A demo that works for one local file may fail for uploaded files, large videos, unsupported image formats, or long audio that exceeds the transcription model's limits.
+
 ## Common Mistakes
 
 - Sending raw media to a text-only model.

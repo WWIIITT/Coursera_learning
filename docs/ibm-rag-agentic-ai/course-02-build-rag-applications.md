@@ -59,6 +59,40 @@ demo = gr.Interface(fn=respond, inputs="text", outputs="text")
 demo.launch()
 ```
 
+## Detailed Study Notes
+
+RAG has two separate phases. The indexing phase prepares the knowledge base before a user asks a question. The query phase retrieves relevant chunks at runtime and asks the model to answer using those chunks. Keeping those phases separate makes debugging much easier because retrieval can be evaluated without involving the LLM.
+
+The indexing phase usually follows this shape:
+
+```python
+documents = loader.load()
+chunks = splitter.split_documents(documents)
+vectorstore = Chroma.from_documents(
+    documents=chunks,
+    embedding=embedding_model,
+    persist_directory="./chroma_index"
+)
+vectorstore.persist()
+```
+
+The query phase should inspect retrieved context before trusting the final answer:
+
+```python
+retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
+docs = retriever.invoke(question)
+
+for i, doc in enumerate(docs):
+    print(i, doc.metadata, doc.page_content[:300])
+
+context = "\n\n".join(doc.page_content for doc in docs)
+answer = llm.invoke(f"Answer only from this context:\n{context}\n\nQuestion: {question}")
+```
+
+Chunk size is a design choice. Small chunks improve precision because each result is focused, but they can lose surrounding context. Large chunks preserve context but can bury the answer inside irrelevant text. Overlap reduces the chance that an answer is split at a boundary, but it increases storage and retrieval duplication.
+
+Gradio is useful after the retrieval loop works. A good development order is: load one document, split it, print chunks, run retrieval, inspect retrieved chunks, generate an answer, then expose the function through Gradio.
+
 ## Common Mistakes
 
 - Chunking documents without checking whether answers span chunk boundaries.

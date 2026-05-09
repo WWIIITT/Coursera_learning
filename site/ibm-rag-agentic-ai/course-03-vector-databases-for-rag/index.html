@@ -685,6 +685,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1087,6 +1098,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1180,6 +1202,30 @@ d(a,b) = \sqrt{\sum_i (a_i - b_i)^2}
 <p>Limit and filter retrieved results:</p>
 <div class="highlight"><pre><span></span><code><span class="n">filtered</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">results</span> <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="s2">&quot;calories&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">max_calories</span><span class="p">]</span>
 </code></pre></div>
+<h2 id="detailed-study-notes">Detailed Study Notes</h2>
+<p>Embeddings are coordinates for meaning. The model maps text, records, or images into vectors so that related items tend to be close. The vector database stores those embeddings together with IDs, original content, and metadata. Retrieval then compares the query embedding to stored embeddings and returns nearest neighbors.</p>
+<p>Metadata is as important as the vector. A user query such as "low calorie vegetarian dinner" has both semantic intent and structured constraints. Vector similarity can find food-like matches, while metadata filters can enforce calories, cuisine, dietary category, or availability.</p>
+<p>Typical Chroma workflow:</p>
+<div class="highlight"><pre><span></span><code><span class="n">client</span> <span class="o">=</span> <span class="n">chromadb</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+<span class="n">collection</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">create_collection</span><span class="p">(</span><span class="s2">&quot;course_notes&quot;</span><span class="p">)</span>
+
+<span class="n">collection</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+    <span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;doc-1&quot;</span><span class="p">,</span> <span class="s2">&quot;doc-2&quot;</span><span class="p">],</span>
+    <span class="n">documents</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;RAG retrieves context.&quot;</span><span class="p">,</span> <span class="s2">&quot;Agents can call tools.&quot;</span><span class="p">],</span>
+    <span class="n">metadatas</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;rag&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;concept&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;agents&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;concept&quot;</span><span class="p">},</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Query with metadata constraints:</p>
+<div class="highlight"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+    <span class="n">query_texts</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;how do agents use tools?&quot;</span><span class="p">],</span>
+    <span class="n">n_results</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">where</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;course&quot;</span><span class="p">:</span> <span class="s2">&quot;agents&quot;</span><span class="p">},</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Recommendation systems use the same mechanics. The query may be a user preference profile, and the returned records are items with similar embeddings. A robust recommender usually combines vector search with deterministic filters and result limits so the response is relevant, allowed, and not too broad.</p>
 <h2 id="common-mistakes">Common Mistakes</h2>
 <ul>
 <li>Comparing raw vectors without normalizing when the metric expects normalized vectors.</li>

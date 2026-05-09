@@ -713,6 +713,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1087,6 +1098,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1174,6 +1196,21 @@
 <div class="highlight"><pre><span></span><code><span class="n">context</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">page_content</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">)</span>
 <span class="n">answer</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use this transcript context:</span><span class="se">\n</span><span class="si">{</span><span class="n">context</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">Question: </span><span class="si">{</span><span class="n">question</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
+<h2 id="detailed-study-notes">Detailed Study Notes</h2>
+<p>Advanced retrieval improves the evidence before generation. A common pattern is multi-stage retrieval: first retrieve a larger candidate set cheaply, then filter, compress, or rerank it before sending a smaller context to the LLM. This reduces missed evidence without flooding the prompt.</p>
+<p>A practical retrieval chain can look like this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">base_retriever</span> <span class="o">=</span> <span class="n">vectorstore</span><span class="o">.</span><span class="n">as_retriever</span><span class="p">(</span><span class="n">search_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">})</span>
+<span class="n">candidate_docs</span> <span class="o">=</span> <span class="n">base_retriever</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+
+<span class="n">reranked_docs</span> <span class="o">=</span> <span class="n">reranker</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">candidate_docs</span><span class="p">)</span>
+<span class="n">final_docs</span> <span class="o">=</span> <span class="n">reranked_docs</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+
+<span class="n">context</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">page_content</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">final_docs</span><span class="p">)</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use the context below.</span><span class="se">\n\n</span><span class="si">{</span><span class="n">context</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">Question: </span><span class="si">{</span><span class="n">question</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Query transformation helps when the user's wording does not match the source. The system can rewrite the question, generate multiple query variants, or expand acronyms before retrieval. This is helpful for transcripts, support docs, or course PDFs where the same idea may be phrased several ways.</p>
+<p>HNSW-style search trades exactness for speed. It builds a graph where vectors connect to nearby vectors. Search walks the graph toward better neighbors instead of comparing against every vector. The result is fast approximate nearest-neighbor retrieval, but quality still needs evaluation with real questions.</p>
+<p>For summarization, retrieval should preserve coverage. For QA, retrieval should preserve answer specificity. A transcript summarizer may need representative chunks from the whole video, while a QA bot needs the few chunks that answer the exact question.</p>
 <h2 id="common-mistakes">Common Mistakes</h2>
 <ul>
 <li>Increasing <code>k</code> without checking whether the extra chunks add noise.</li>

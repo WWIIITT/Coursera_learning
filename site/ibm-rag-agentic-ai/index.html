@@ -601,6 +601,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1087,6 +1098,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1178,6 +1200,22 @@
 <span class="n">agent</span> <span class="o">=</span> <span class="n">create_agent</span><span class="p">(</span><span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span> <span class="n">tools</span><span class="o">=</span><span class="n">tools</span><span class="p">)</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="n">user_request</span><span class="p">})</span>
 </code></pre></div>
+<h2 id="detailed-study-notes">Detailed Study Notes</h2>
+<p>The track can be read as a progression from single model calls to full systems. Course 1 focuses on prompts and app scaffolding. Course 2 adds external context through RAG. Course 3 explains the vector database layer. Course 4 improves retrieval quality. Course 5 adds non-text media. Courses 6-8 add tools, state, agents, and multi-agent coordination.</p>
+<p>The repeated architecture is:</p>
+<div class="highlight"><pre><span></span><code>user input -&gt; preprocessing -&gt; retrieval/tool use -&gt; model call -&gt; validation -&gt; response
+</code></pre></div>
+<p>Each stage has a different failure mode. Preprocessing can lose important information. Retrieval can return irrelevant context. Tools can fail or produce unsafe side effects. The model can ignore instructions or overgeneralize. Validation catches some of those errors before the user sees the answer.</p>
+<p>For RAG systems, evaluate both retrieval and generation:</p>
+<div class="highlight"><pre><span></span><code><span class="n">docs</span> <span class="o">=</span> <span class="n">retriever</span><span class="o">.</span><span class="n">invoke</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
+<span class="n">retrieval_ok</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">expected_phrase</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">page_content</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">)</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="n">question</span><span class="p">,</span> <span class="s2">&quot;context&quot;</span><span class="p">:</span> <span class="n">docs</span><span class="p">})</span>
+</code></pre></div>
+<p>For agent systems, inspect the trace:</p>
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="n">agent_executor</span><span class="o">.</span><span class="n">invoke</span><span class="p">({</span><span class="s2">&quot;input&quot;</span><span class="p">:</span> <span class="n">request</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;intermediate_steps&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>A strong implementation habit is to make each boundary observable: log prompts, retrieved chunks, tool arguments, tool outputs, final answers, and validation results. This makes the system debuggable when the final response is wrong.</p>
 <h2 id="common-mistakes">Common Mistakes</h2>
 <ul>
 <li>Passing too much context instead of retrieving the most relevant chunks.</li>

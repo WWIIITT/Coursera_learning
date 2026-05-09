@@ -80,6 +80,40 @@ agent_executor = create_sql_agent(
 )
 ```
 
+## Detailed Study Notes
+
+An agent should be used when the application needs runtime decisions about actions. If the workflow is always the same, a deterministic chain is easier to test. If the model must decide whether to search, query SQL, calculate, inspect a file, or ask for clarification, an agent loop becomes useful.
+
+Tool design is the main engineering work. A tool needs a clear name, a narrow responsibility, a typed argument schema, and a return value that the model can interpret. Vague tools create vague behavior.
+
+Example tool schema:
+
+```python
+class CalculatorInput(BaseModel):
+    expression: str = Field(description="A valid arithmetic expression")
+
+@tool(args_schema=CalculatorInput)
+def calculator(expression: str) -> str:
+    return str(evaluate_expression(expression))
+```
+
+Manual tool-calling follows the same loop even without a framework:
+
+```python
+messages = [{"role": "user", "content": user_request}]
+
+while True:
+    response = llm.invoke(messages, tools=tools)
+    if not response.tool_calls:
+        break
+
+    for call in response.tool_calls:
+        observation = run_tool(call["name"], call["args"])
+        messages.append({"role": "tool", "content": observation})
+```
+
+For SQL agents, permissions matter. The safest pattern is read-only credentials, query logging, row limits, and explicit inspection of generated SQL during development. The model can help write SQL, but the database still executes real commands.
+
 ## Common Mistakes
 
 - Giving tools vague names or unclear argument schemas.

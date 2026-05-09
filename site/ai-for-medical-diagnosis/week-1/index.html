@@ -458,6 +458,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1087,6 +1098,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1220,6 +1242,18 @@ L = -w_{\text{pos}} y \log(\hat{y} + \epsilon) - w_{\text{neg}}(1-y)\log(1-\hat{
 <span class="n">predictions</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;sigmoid&quot;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">base_model</span><span class="o">.</span><span class="n">input</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">predictions</span><span class="p">)</span>
 </code></pre></div>
+<h2 id="detailed-study-notes">Detailed Study Notes</h2>
+<p>A chest X-ray diagnosis model starts with data hygiene. The same patient can have multiple images, so a random image-level split can leak patient-specific information into validation or test data. Patient-level overlap checks should happen before model training.</p>
+<p>The label matrix is multi-label:</p>
+<div class="highlight"><pre><span></span><code><span class="n">labels</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="n">disease_names</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</code></pre></div>
+<p>Each row belongs to one image, and each column belongs to one disease. A row may contain several <code>1</code> values because diseases are not mutually exclusive. That is why the final layer uses <code>sigmoid</code> instead of <code>softmax</code>.</p>
+<p>Weighted loss changes how mistakes contribute to training:</p>
+<div class="highlight"><pre><span></span><code><span class="n">positive_loss</span> <span class="o">=</span> <span class="n">pos_weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">y_true</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">K</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y_pred</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">)</span>
+<span class="n">negative_loss</span> <span class="o">=</span> <span class="n">neg_weights</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y_true</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="n">K</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">)</span>
+</code></pre></div>
+<p>If positive examples are rare, the positive class receives more relative signal. This does not guarantee good sensitivity, but it prevents the loss from being dominated by common negative labels.</p>
+<p>Transfer learning uses DenseNet as a visual feature extractor. The pretrained convolutional layers provide general image features, while the new classifier head learns the course-specific disease labels. The model should still be evaluated carefully because medical image distributions differ from ordinary natural images.</p>
 <h2 id="common-mistakes">Common Mistakes</h2>
 <ul>
 <li>Using image-level splits instead of patient-level splits.</li>

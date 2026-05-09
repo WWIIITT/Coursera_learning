@@ -486,6 +486,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1087,6 +1098,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#detailed-study-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Study Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-mistakes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1221,6 +1243,27 @@ F1 = \frac{2 \times \text{Precision} \times \text{Recall}}{\text{Precision} + \t
 <span class="n">npv</span> <span class="o">=</span> <span class="n">TN</span> <span class="o">/</span> <span class="p">(</span><span class="n">TN</span> <span class="o">+</span> <span class="n">FN</span><span class="p">)</span>
 </code></pre></div>
 <p>Bootstrap confidence intervals by repeatedly sampling positives and negatives, computing a statistic each time, and taking percentiles of the bootstrap distribution.</p>
+<h2 id="detailed-study-notes">Detailed Study Notes</h2>
+<p>A model score becomes a diagnostic decision only after choosing a threshold. The same probability outputs can produce very different clinical behavior depending on that threshold.</p>
+<p>Threshold sweep pattern:</p>
+<div class="highlight"><pre><span></span><code><span class="n">thresholds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">th</span> <span class="ow">in</span> <span class="n">thresholds</span><span class="p">:</span>
+    <span class="n">thresholded</span> <span class="o">=</span> <span class="n">pred</span> <span class="o">&gt;=</span> <span class="n">th</span>
+    <span class="n">tp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">thresholded</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">thresholded</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">tn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">thresholded</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">fn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">thresholded</span> <span class="o">==</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s2">&quot;threshold&quot;</span><span class="p">:</span> <span class="n">th</span><span class="p">,</span>
+        <span class="s2">&quot;sensitivity&quot;</span><span class="p">:</span> <span class="n">tp</span> <span class="o">/</span> <span class="p">(</span><span class="n">tp</span> <span class="o">+</span> <span class="n">fn</span><span class="p">),</span>
+        <span class="s2">&quot;specificity&quot;</span><span class="p">:</span> <span class="n">tn</span> <span class="o">/</span> <span class="p">(</span><span class="n">tn</span> <span class="o">+</span> <span class="n">fp</span><span class="p">),</span>
+    <span class="p">})</span>
+</code></pre></div>
+<p>Sensitivity and specificity are conditioned on the true disease state. PPV and NPV are conditioned on the model prediction. This distinction matters because PPV and NPV shift with prevalence. A positive prediction from the same model can be more trustworthy in a high-prevalence population than in a low-prevalence screening population.</p>
+<p>ROC curves summarize ranking behavior across thresholds, but they do not choose the threshold for deployment. Precision-recall curves are often more revealing for rare diseases because false positives can dominate the positive prediction set.</p>
+<p>Calibration answers a different question: when the model predicts 0.7, does the disease occur about 70 percent of the time among similar predictions? A well-ranked model can still be poorly calibrated.</p>
 <h2 id="common-mistakes">Common Mistakes</h2>
 <ul>
 <li>Treating AUC as proof that the chosen threshold is clinically acceptable.</li>
